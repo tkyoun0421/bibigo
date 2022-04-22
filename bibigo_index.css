@@ -1,0 +1,822 @@
+html{
+    font-size: 3vw;
+}
+
+body{
+    font-size: 0.7vw;
+}
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+.hdrWrap header{
+    width: 80%;
+    max-width: 1080px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Gowun Batang', serif;
+    align-items: center;
+}
+
+.hdrWrap .hdrLeft{
+    width: calc(100% / 12 * 8);
+    display: flex;
+    justify-content: space-between;
+}
+
+.hdrWrap .logo{
+    background-image: url('./images/logo.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: calc(100% / 7 * 1.2);
+    height: auto;    
+}
+
+.hdrWrap .nav{
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% / 7 * 4.5);
+    font-size: min(2em,20px);
+    font-weight: 700;
+    line-height: min(2rem,80px);
+}
+
+.hdrWrap .nav li{
+    cursor: pointer;
+}
+
+.hdrWrap .hdrRight{
+    width: calc(100% / 12 * 2.5);
+}
+
+.hdrWrap .tab{
+    display: flex;
+    justify-content: space-between;
+    font-size: min(1.8em,18px);
+    font-weight: 700;
+    cursor: pointer;
+    min-width: 150px;
+}
+
+.hdrWrap .tab li{
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    padding: min(1em,10px);
+}
+
+.hdrWrap .tab li:nth-child(2){
+    background-color: #bed500;
+    border: 2px solid #bed500;
+    color: #fff;
+}
+
+/* main */
+.mainWrap{
+    background-image: url('./images/main_pic01.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: auto;
+    width: 100vw;
+}
+main{
+    padding: min(4rem,160px) 0 min(10rem,400px);
+    width: 80%;
+    max-width: 1080px;
+    margin: 0 auto;
+    text-align: center;
+    color: #fff;
+    font-family: 'Gowun Batang', serif;
+    font-weight: 700;
+}
+
+main h2{
+    font-size: min(7em,70px);
+    line-height: min(2rem,80px);
+}
+
+main h5{
+    margin-top: min(2rem,80px);
+    font-size: min(3em,30px);
+}
+
+/* content01 */
+.cntWrap01{
+    background-image: url('./images/best_bg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: auto;
+    width: 100vw;
+}
+
+.content{
+    width: 80%;
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+.cnt01 header{
+    text-align: center;
+    padding-top: min(3rem,120px);    
+}
+
+.cnt01 header h2{
+    font-size: min(6em,60px);
+    font-weight: 700;
+    font-family: 'Gowun Batang', serif;
+    color: #71ad2c;
+}
+
+.cnt01 header h5{
+    font-size: min(2.8em,28px);
+    line-height: min(1rem,40px);
+    font-weight: 700;
+    width: calc(100% / 12 * 9.5);
+    margin: 0 auto;
+    margin-top: min(1rem,40px);
+    font-family: 'Gowun Batang', serif;
+}
+
+.cnt01 section{
+    margin-top: min(2rem,80px);
+}
+
+.cnt01 .artView{
+    width: 100%;
+    overflow: hidden;
+}
+
+.cnt01 .artGroup{
+    width: 200%;
+}
+
+.cnt01 .artGroup::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.cnt01 article{
+    float: left;
+    width: calc(100% / 6 - 40px);
+    margin: 0 20px;
+}
+
+.cnt01 .image{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+    height: min(32em,320px);
+}
+
+.cnt01 .i1{
+    background-image: url('./images/obj_home1_1.png');
+}
+
+.cnt01 .i2{
+    background-image: url('./images/obj_home2_1.png');
+}
+
+.cnt01 .i3{
+    background-image: url('./images/obj_home7_1.png');
+}
+
+.cnt01 .i4{
+    background-image: url('./images/obj_home8_1.png');
+}
+
+.cnt01 .i5{
+    background-image: url('./images/obj_home6_1.png');
+}
+
+.cnt01 .i6{
+    background-image: url('./images/obj_home10_1.png');
+}
+
+.cnt01 .texts{
+    margin-top: min(1rem,40px);
+    text-align: center;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.cnt01 .texts h5{
+    line-height: min(1rem,40px);
+    font-size: min(1.8em,18px);
+    font-weight: 700;
+    color: #71ad2c;
+}
+
+.cnt01 .texts h3{
+    line-height: min(1rem,40px);
+    font-size: min(2.6em,26px);    
+}
+
+.cnt01 .texts h4{
+    line-height: min(2rem,80px);
+    font-size: min(1,6em,16px);
+    color: #666666;
+}
+
+.cnt01 .slideSwitch{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cnt01 .slideWrap{
+    width: calc(100% / 12 * 9);
+    height: min(0.5em,5px);
+    background-color: #ebebeb;
+    margin-top: min(1rem,40px);
+}
+
+.cnt01 .sildeCurrent{
+    width: 50%;
+    height: min(0.5em,5px);
+    background-color: #71ad2c;
+}
+
+.cnt01 .btn{
+    width: calc(100% / 12 * 1.6);
+    line-height: min(2rem,80px);
+    font-size: min(3em,30px);
+    position: relative;
+}
+
+.cnt01 .btn i:hover{
+    color: #71ad2c;
+    
+}
+
+.cnt01 .btn i:nth-child(2){
+    border: 1px solid #ebebeb;
+    border-radius: 50%;
+    padding: min(0.5em,5px);
+}
+
+.cnt01 .btn i:nth-child(4){
+    opacity: 0;
+}
+
+/* banner01 */
+.bnrWrap{
+    margin-top: min(3rem,120px);
+}
+
+.bnr01{
+    /* width: 80%;
+    max-width: 1080px; */
+    margin: 0 auto;
+    display: flex;
+    justify-content: start;
+}
+
+.bnr01 .bnrLeft{
+    width: 80%;
+    max-width: 1080px;
+    width: calc(100% / 12 * 6);
+    background-color: #2f3030;
+    color: #fff;
+    padding: min(3rem,120px) 0 min(5em,50px);
+    text-align: center;
+    border-top-left-radius: min(2rem,80px);
+    margin-left: max(calc((100vw - 1080px) / 2), (3rem,120px));
+}
+
+.bnr01 .bnrLeft h2{
+    font-size: min(1rem,40px);
+    font-weight: 700;
+    font-family: 'Gowun Batang', serif;
+}
+
+.bnr01 .bnrLeft p{
+    font-size: min(1.8em,18px);
+    color: #919191;
+    width: calc(100% / 5.5 * 4);
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0 auto;
+    margin-top: min(5.5em,55px);
+    height: min(1rem,40px);
+    line-height: min(2em,20px);
+}
+
+.bnr01 .bnrLeft .btn{
+    font-size: min(1.8em,18px);
+    line-height: min(6em,60px);
+    color: #010101;
+    background-color: #fff;
+    width: calc(100% / 5.5 * 1.2);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 700;
+    margin: 0 auto;
+    margin-top: min(5em,50px);
+    border-radius: 20px;
+    min-width: 108px;
+}
+.bnr01 .bnrRight{
+    height: auto;
+    background-color: #ccc;
+    width: 100vw;
+    background-image: url('./images/bg_main_thebibigo.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* content02 */
+.cntWrap02{
+    background-color: #9ec477;
+}
+
+.cnt02{
+    width: 80%;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: min(1rem,40px) 0 min(5em,50px);
+    position: relative;
+}
+
+.cnt02 header{
+    text-align: center;
+}
+
+.cnt02 header h2{
+    font-size: min(6em,60px);
+    line-height: min(2rem,80px);
+    color: #305a05;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 700;
+}
+
+.cnt02 header p{
+    font-size: min(1.8em,18px);
+    font-weight: 700;
+    height: min(4.5em,45px);
+    color: #fff;
+    width: calc(100% / 12 * 8);
+    margin: 0 auto;
+    margin-top: min(1rem,40px);
+    font-family: 'Gowun Batang', serif;
+}
+
+.cnt02 section{
+    margin-top: min(1rem,40px);
+}
+
+.cnt02 .tab{
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% / 12 * 8);
+    margin: 0 auto;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: min(3.2em,32px);
+    line-height: min(1rem,40px);
+    font-weight: 700;
+    color: #e2e2e2;
+}
+
+.cnt02 .tab li{
+    cursor: pointer;
+}
+
+.cnt02 .now{
+    color: #fff;
+}
+
+.cnt02 .artBtm{
+    width: 100%;
+}
+.cnt02 .artView{
+    width: 100%;
+    overflow: hidden;
+}
+
+.cnt02 .artGroup{
+    width: 600%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cnt02 article{
+    width: calc(100% / 6 - 10px);
+    margin-top: min(5em,50px);
+    background-color: #fff;
+    border-radius: min(3em,30px);
+    padding: min(2em,20px);
+}
+
+.cnt02 article::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.cnt02 article .image{
+    width: calc(100% / 3 - 20px);
+    height: min(8rem,320px);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: min(3em,30px);
+    float: left;
+    margin: 0 10px;
+}
+
+.cnt02 article .i1{
+    background-image: url('./images/cnt02_mandu_pic01.png');
+}
+
+.cnt02 article .i2{
+    background-image: url('./images/cnt02_mandu_pic02.png');
+}
+
+.cnt02 article .i3{
+    background-image: url('./images/cnt02_mandu_pic03.png');
+}
+
+.cnt02 article .texts{
+    float: left;
+    width: calc(100% / 3 - 20px);
+    margin: 0 10px;
+    text-align: center;
+    font-size: min(1.8em,18px);
+    font-weight: 700;
+    font-family: 'Noto Sans KR', sans-serif;
+    line-height: min(1rem,40px);
+    color: #2f3030;
+}
+
+.cnt02 .btn{
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: 92%;
+    top: 65%;
+    left: 3.7%;
+    font-size: min(5em,50px);
+    color: #fff;
+    z-index: 5;
+}
+
+.cnt02 .btn>i{
+    opacity: 1;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.cnt02 article .i4{
+    background-image: url('./images/cnt02_kimchi_pic01.jpg');
+}
+
+.cnt02 article .i5{
+    background-image: url('./images/cnt02_kimchi_pic02.jpg');
+}
+
+.cnt02 article .i6{
+    background-image: url('./images/cnt02_kimchi_pic03.jpg');
+}
+
+.cnt02 article .i7{
+    background-image: url('./images/cnt02_kuk_pic01.jpg');
+}
+
+.cnt02 article .i8{
+    background-image: url('./images/cnt02_kuk_pic02.jpg');
+}
+
+.cnt02 article .i9{
+    background-image: url('./images/cnt02_kuk_pic03.jpg');
+}
+
+.cnt02 article .i10{
+    background-image: url('./images/cnt02_juk_pic01.jpg');
+}
+
+.cnt02 article .i11{
+    background-image: url('./images/cnt02_juk_pic02.jpg');
+}
+
+.cnt02 article .i12{
+    background-image: url('./images/cnt02_juk_pic03.jpg');
+}
+
+.cnt02 article .i13{
+    background-image: url('./images/cnt02_bulgogi_pic01.jpg');
+}
+
+.cnt02 article .i14{
+    background-image: url('./images/cnt02_bulgogi_pic02.jpg');
+}
+
+.cnt02 article .i15{
+    background-image: url('./images/cnt02_bulgogi_pic03.jpg');
+}
+
+.cnt02 article .i16{
+    background-image: url('./images/cnt02_fish_pic01.jpg');
+}
+
+.cnt02 article .i17{
+    background-image: url('./images/cnt02_fish_pic02.jpg');
+}
+
+.cnt02 article .i18{
+    background-image: url('./images/cnt02_fish_pic03.jpg');
+}
+
+/* banner02 */
+.bnrWrap02{
+    background-image: url('./images/bibigo_e_map.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: min(78em,780px);
+}
+
+.bnr02{
+    width: 80%;
+    max-width: 1080px;
+    margin: 0 auto;
+    position: relative;
+    height: min(78em,780px);
+}
+
+.bnr02 header h2{
+    font-size: min(1rem,40px);
+    line-height: min(2rem,80px);
+    color: #305a05;
+    font-family: 'Gowun Batang', serif;
+    font-weight: 700;
+}
+
+.bnr02 header h2::before{
+    width: calc(100% / 12 * 5);
+    height: min(0.5em,5px);
+    content: '';
+    display: block;
+    background-color: #9ec477;
+}
+
+.bnr02 .texts{
+    display: flex;
+    justify-content: start;
+    width: calc(100% / 12 * 5);
+    position: absolute;
+    right: min(8em,80px);
+    bottom: min(25em,250px);
+}
+
+.bnr02 .texts h3{
+    font-size: min(2.4em,24px);
+    line-height: min(1rem,40px);
+    font-family: 'Gowun Batang', serif;
+    color: #6a8b50;
+    font-weight: 700;
+}
+
+.bnr02 .texts h3:nth-child(2){
+    margin-left: calc(100% / 5 * 0.4);
+}
+
+.bnr02 .countNum{
+    display: flex;
+    justify-content: start;
+    width: calc(100% / 12 * 5);
+    position: absolute;
+    right: min(8em,80px);
+    bottom: min(10em,100px); 
+}
+
+.bnr02 .countNum h4{
+    font-size: min(13em,130px);
+    color: #666666;
+    font-weight: 700;
+    font-family: 'Gowun Batang', serif;  
+}
+
+.bnr02 .countNum h4:nth-child(2){
+    margin-left: calc(100% / 5 * 0.8);
+}
+
+/* content03 */
+.cntWrap03{
+    margin-top: min(3rem,120px);
+}
+
+.cnt03 header{
+    text-align: center;
+}
+
+.cnt03 header h5{
+    font-size: min(2.4em,24px);
+    line-height: min(1rem,40px);
+    color: #71ad2c;
+    font-weight: 700;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.cnt03 header h2{
+    font-size: min(4.4em,44px);
+    line-height: min(2rem,80px);
+    font-family: 'Gowun Batang', serif;
+    font-weight: 700;
+}
+
+.cnt03 section{
+    display: flex;
+    justify-content: space-between;
+    margin-top: min(1rem,40px);
+}
+
+.cnt03 section article{
+    width: calc(100% / 2 - 20px);
+    height: min(12rem,480px);
+    position: relative;
+    z-index: 3;
+}
+
+.cnt03 article .image{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: min(48em,480px);
+    border-radius: 10%;
+}
+.cnt03 article:hover>div.texts{
+    opacity: 0.7;
+}
+
+.cnt03 article:hover>div.texts>h4{
+    margin-top: -20px;
+}
+.cnt03 article:hover>div.texts>i{
+    margin-top: -20px;
+}
+
+.cnt03 article .i1{
+    background-image: url('./images/cnt1_pic01.jpg');
+}
+
+.cnt03 article .i2{
+    background-image: url('./images/bg_visual2.jpg');
+}
+
+.cnt03 article .texts{
+    background-color: #000;
+    height: min(48em,480px);
+    border-radius: 10%;
+    z-index: 1;
+    text-align: center;
+    width: 100%;    
+    transition: all .5s;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.cnt03 .texts i{
+    font-size: min(1rem,40px);
+    color: #fff;
+    z-index: 5;
+    line-height: min(2rem,80px);    
+    padding: min(5rem,200px) 0 min(4rem,160px);
+    transition: all .5s;
+}
+
+.cnt03 .texts h4{
+    color: #fff;
+    font-family: 'Gowun Batang', serif;
+    font-size: min(1.8em,18px);
+    font-weight: 700;
+    z-index: 5;
+    text-align: right;
+    margin-right: min(2em,20px);
+    transition: all .5s;
+}
+
+/* footer */
+.gnbWrap{
+    background-color: #09351b;
+    margin-top: min(3rem,120px);
+}
+
+.gnb{
+    width: 80%;
+    max-width: 1080px;
+    margin: 0 auto;
+    line-height: min(3rem,120px);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.gnb .topBtn{
+    width: min(2rem,80px);
+    height: min(2rem,80px);
+    text-align: center;
+    line-height: min(2rem,80px);
+    font-size: min(1.6em,16px);
+    font-family: 'Gowun Batang', serif;
+    font-weight: 700;
+    background-color: #71ad2c;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: -35%;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.gnb .tabLeft{
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% / 12 * 5.8);
+    font-family: 'Gowun Batang', serif;
+    font-size: min(2em,20px);
+    font-weight: 700;
+}
+
+.gnb .tabRight{
+    width: calc(100% / 12 * 2);
+    display: flex;
+    justify-content: space-between;
+    font-size: min(3.5em,35px);
+}
+
+footer{
+    width: 80%;
+    max-width: 1080px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Noto Sans KR', sans-serif;
+    padding-bottom: min(2rem,80px);
+}
+
+.ftrLeft{
+    margin-top: min(1rem,40px);
+    width: calc(100% / 12 * 6);
+    font-size: min(1.2em,12px);
+}
+
+.ftrLeft .infoTop{
+    display: flex;
+    justify-content: start;
+    width: calc(100% / 6 * 5);
+}
+
+.ftrLeft .infoTop li:nth-child(2){
+    margin-left: min(2em,20px);
+}
+
+.ftrLeft .infoTop li{
+    position: relative;
+    padding: 0 7px 0 0;
+    white-space: nowrap;
+}
+
+.ftrLeft .infoTop li::before{
+    content: '';
+    width: 1px;
+    height: 10px;
+    background-color: #000;
+    position: absolute;
+    right: 0;
+    top: 4px;
+}
+
+.ftrLeft .infoMid{
+    line-height: min(1rem,40px);
+}
+
+.ftrLeft .infoBtm{
+    line-height: min(1rem,40px);
+    color: #a0a0a0;
+}
+
+.ftrRight{
+    display: flex;
+    justify-content: space-between;
+    margin-top: min(1rem,40px);    
+    font-weight: 700;
+    width: calc(100% / 12 * 4);
+    font-size: min(1.2em,12px);
+    line-height: min(2rem,80px);
+}
+
+.ftrRight h4:nth-child(1){
+    color: #71ad2c;
+}
+
+.ftrRight .logo{
+    background-image: url('./images/logo_cj.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: min(2rem,80px);
+    width: calc(100% / 4 * 2 - 20px);
+}
