@@ -1,34 +1,41 @@
 $(function(){
     // 변수
-    var cnt2_btn = $('.artBtm>.btn>i')
-    var tab = $('.artTop>.tab>li');
-    var cnt2_artGroup = $('.artBtm>.artView>.artGroup');
+    var i = 0;
     var ind = 0;
     var gnbBtn = $('.gnb .topBtn');
     var sildeCurrent = $('.sildeCurrent');
-    var clickNow = $('.now');
     var cnt1_btn = $('.slideSwitch>.btn>i');
     var cnt1_artGroup = $('.cnt01>section>.artView>.artGroup');
     var auto= setInterval(autoSlide , 1800);
-    var i = 0;    
-    // 기초 세팅
-    cnt1_artGroup.find('article:last').appendTo(cnt1_artGroup);
-    cnt1_artGroup.css({marginLeft: '-33%'});
-    cnt2_artGroup.css({
-        marginLeft: '-100%'
-    });
-    cnt1_artGroup.find('article:eq(2)>.image').css({
-        'transform' : 'scale(1.15)'
-    });
-
-    $(window).blur(function(){
-        $(window).finish();
-    });
-
-    $(window).focus(function(){
-    });
+    var cnt2_btn_left = $('.cnt02 .pageBtn>i.left');
+    var cnt2_btn_right = $('.cnt02 .pageBtn>i.right');
+    var cnt2_artGroup = $('.cnt02 .artGroup');
+    var cnt2_paging = $('.cnt02 .artBtm>.paging>li');
+    var cnt2_tab = $('.cnt02 .tab>li');
+    var bnr2_countNum = $('.bnr02 .countNum>h4');
+    var bnr2_Wrap = $('.bnrWrap02');
+    var num = 0;
     
-    
+    // 기초 세팅   
+
+    function autoSlide(){
+        ind = cnt1_artGroup.find('article:first').attr('data-num');
+        sildeCurrent.css({
+            width: ind * 16.68 + '%'
+        });  
+        cnt1_artGroup.animate({
+            marginLeft: '-66%',          
+        },1000,function(){
+            cnt1_artGroup.find('article:first').appendTo(cnt1_artGroup);
+            cnt1_artGroup.css({marginLeft: '-33%'});        
+            cnt1_artGroup.find('article>.image').css({
+                'transform' : 'scale(1.00)'
+            });    
+            cnt1_artGroup.find('article:eq(2)>.image').css({
+                'transform' : 'scale(1.05)'
+            });
+        });       
+    }
 
     cnt1_btn.eq(1).click(function(){
         if(cnt1_btn.hasClass('xi-play') === true){
@@ -86,156 +93,73 @@ $(function(){
         cnt1_btn.eq(1).addClass('xi-play');
         
     });
+        
+    cnt2_btn_left.click(function(){
+        i--;
+        if(i <= 0){
+            i = 0
+            cnt2_btn_left.css({'opacity': '0'});
+        }
+        cnt2_artGroup.css({
+            marginLeft: i * -100 + '%'
+        });
+        cnt2_btn_right.css({'opacity': '1'});
+        cnt2_paging.removeClass('show');
+        cnt2_paging.eq(i).addClass('show');
+    });
 
-    function autoSlide(){
-        ind = cnt1_artGroup.find('article:first').attr('data-num');
-        sildeCurrent.css({
-            width: ind * 16.68 + '%'
-        });  
-        cnt1_artGroup.animate({
-            marginLeft: '-66%',          
-        },1000,function(){
-            cnt1_artGroup.find('article:first').appendTo(cnt1_artGroup);
-            cnt1_artGroup.css({marginLeft: '-33%'});        
-            cnt1_artGroup.find('article>.image').css({
-                'transform' : 'scale(1.00)'
-            });    
-            cnt1_artGroup.find('article:eq(2)>.image').css({
-                'transform' : 'scale(1.15)'
-            });
-        });       
-    }
-    function cnt02_Left(){
-        cnt2_artGroup.animate({
-            marginLeft: '0%'
-        },1000,function(){
-            cnt2_artGroup.find('article:last').prependTo(cnt2_artGroup);
-            cnt2_artGroup.css({marginLeft: '-100%'});
+    cnt2_btn_right.click(function(){
+        i++;
+        if(i >= 2){
+            i = 2
+            cnt2_btn_right.css({'opacity': '0'});
+        }        
+        cnt2_artGroup.css({
+            marginLeft: i * -100 + '%'
         });
-        ind = cnt2_artGroup.find('article:eq(0)').attr('data-num');
-        tab.removeClass('now');
-        tab.eq(ind).addClass('now');
-        cnt2_btn.css({
-            'pointer-events': 'none',
-            'opacity': '0.4'
-        });
-        tab.css({
-            'pointer-events': 'none'
-        });
-        setTimeout(function(){
-            cnt2_btn.css({
-                'pointer-events': 'auto',
-                'opacity': '1'
-            });
-            tab.css({
-                'pointer-events': 'auto'
-            });
-        },1000);
-    };
+        console.log(i);
+        console.log(cnt2_paging);
+        cnt2_paging.removeClass('show');
+        cnt2_paging.eq(i).addClass('show');
+        cnt2_btn_left.css({'opacity': '1'});
+    });
 
-    function cnt02_Right(){
-        cnt2_artGroup.animate({
-            marginLeft: '-200%'
-        },1000,function(){
-            cnt2_artGroup.find('article:first').appendTo(cnt2_artGroup);
-            cnt2_artGroup.css({marginLeft: '-100%'});
+    cnt2_tab.click(function(){
+        i = 0;
+        cnt2_paging.removeClass('show');
+        cnt2_paging.eq(0).addClass('show');
+        cnt2_tab.removeClass('now');
+        $(this).addClass('now');
+        ind = $(this).index();
+        cnt2_artGroup.eq(ind).prependTo('.cnt02 .artView');
+        cnt2_artGroup.css({
+            marginLeft: 0
         });
-        ind = cnt2_artGroup.find('article:eq(2)').attr('data-num');
-        tab.removeClass('now');
-        tab.eq(ind).addClass('now');
-        cnt2_btn.css({
-            'pointer-events': 'none',
-            'opacity': '0.4'
-        });
-        tab.css({
-            'pointer-events': 'none'
-        });
-        setTimeout(function(){
-            cnt2_btn.css({
-                'pointer-events': 'auto',
-                'opacity': '1'
+        cnt2_btn_right.css({'opacity' : 1});
+        cnt2_btn_left.css({'opacity' : 0});
+    });
+    // 여기 고쳐야함 05.02
+    bnr2_Wrap.mouseenter(function(){
+        num = bnr2_countNum.text();
+        bnr2_countNum.each(function(a){
+            $({per:0}).animate({per:num},{
+                duration: 3000,
+                progress: function(){
+                    bnr2_countNum.eq(a).text(parseInt(this.per));
+                }
             });
-            tab.css({
-                'pointer-events': 'auto'
-            });
-        },1000); 
-    };
-
-    function cnt02_leftSlide(lastMotion){
-        cnt2_artGroup.animate({
-            marginLeft: '0%'
-        },1000,function(){
-            cnt2_artGroup.find('article:last').prependTo(cnt2_artGroup);
-            cnt2_artGroup.css({marginLeft: '-100%'});
-            if (lastMotion) {
-                setTimeout(function(){
-                    tab.css({
-                        'pointer-events': 'auto',
-                    });
-                    cnt2_btn.css({
-                        'pointer-events': 'auto',
-                        'opacity': '1'
-                    });
-                },300);
-            }
         });
-    }
+    });
 
-    function cnt02_rightSlide(lastMotion){
-        cnt2_artGroup.animate({
-            marginLeft: '-200%'
-        },1000,function(){
-            cnt2_artGroup.find('article:first').appendTo(cnt2_artGroup);
-            cnt2_artGroup.css({marginLeft: '-100%'});
-            if (lastMotion) {
-                setTimeout(function(){
-                    cnt2_btn.css({
-                        'pointer-events': 'auto',
-                        'opacity': '1'
-                    });
-                    tab.css({
-                        'pointer-events': 'auto',
-                    });          
-                },300);
-            }
-        });
-    }
+
+
+
+
+
+   
     
 
-    tab.click(function(){
-        tab.removeClass('now');
-        $(this).addClass('now');
-        var now = $(this).index();
-        var click = $('.now').index();
-        ind = cnt2_artGroup.find('article:eq(1)').attr('data-num');
-        console.log(ind);
-        console.log(click);
-        cnt2_btn.css({
-            'pointer-events': 'none',
-            'opacity': '0.4'
-        });
-        tab.css({
-            'pointer-events': 'none'
-        });
-        if (ind < now) {
-            for ( var i = ind; i < now; i++){
-                cnt02_rightSlide(Number(i+1) >= Number(now));             
-            }
-        }else{
-            for ( var i = now; i < ind; i++){
-                cnt02_leftSlide(Number(i+1) == Number(ind));
-            }
-        }        
-        if( ind == click){
-            tab.css({
-                'pointer-events': 'auto'
-            });
-            cnt2_btn.css({
-                'pointer-events': 'auto',
-                'opacity': '1'
-            });
-        }
-    });
+   
 
 
     gnbBtn.click(function(){
@@ -244,7 +168,5 @@ $(function(){
         },1000);
     });
 
-    cnt2_btn.eq(0).click(cnt02_Left);
-    cnt2_btn.eq(1).click(cnt02_Right);
 
 });
