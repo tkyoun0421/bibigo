@@ -1,0 +1,337 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+@mixin bg{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@mixin grid($dev){
+    @if($dev == 'tablet'){
+        width: 90%;
+        max-width: 700px;
+    }@else if($dev == 'mobile'){
+        width: 90%;
+        max-width: 440px;
+    }@else{
+        width: 80%;
+        max-width: 1080px;
+        margin: 0 auto;
+    }
+}
+
+html{
+    font-size: 3vw;
+    body{
+        font-size: 0.7vw;
+        overflow-x: hidden;
+        width: 100vw;
+    }
+}
+
+// header
+.hdrWrap{
+    header{
+        @include grid('pc');
+        display: flex;
+        justify-content: space-between;
+        font-family: 'Gowun Batang', serif;
+        align-items: center;
+        .hdrLeft{
+            width: calc(100% / 12 * 8);
+            display: flex;
+            justify-content: space-between;
+            .logo{
+                background-image: url('./images/logo.png');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                width: calc(100% / 7 * 1.2);
+                height: auto;    
+            }
+            .nav{
+                display: flex;
+                justify-content: space-between;
+                width: calc(100% / 7 * 4.5);
+                line-height: #{'min(2rem,80px)'};
+                font-weight: 700;
+                font-size: #{'min(2em,20px)'};
+                li{
+                    cursor: pointer;
+                }
+            }
+        }
+        .hdrRight{
+            width: calc(100% / 12 * 2.5);
+            .tab{
+                display: flex;
+                justify-content: space-between;
+                font-size: #{'min(1.8em,18px)'};
+                font-weight: 700;
+                cursor: pointer;
+                min-width: 150px;
+                li{
+                    border: 2px solid #ccc;
+                    border-radius: 25px;
+                    padding: #{'min(1em,10px)'}                   
+                }
+                li:nth-child(2){
+                    background-color: #bed500;
+                    border: 2px solid #bed500;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+// main
+.mainWrap{
+    @include bg;
+    background-image: url('./images/bg_main_home.png');
+    // background: rgba(0, 0, 0 ,30%);
+    height: auto;
+    width: 100vw;
+    main{
+        padding: #{'min(6rem,240px)'} 0 #{'min(6rem,240px)'};
+        @include grid('pc');
+        text-align: center;
+        color: #fff;
+        font-family: 'Gowun Batang', serif;
+        font-weight: 700;
+        h2{
+            font-size: #{'min(3.6em,36px)'};
+            line-height: #{'min(1rem,40px)'};
+            &::after{
+                content: '';
+                display: block;
+                width: 1px;
+                height: #{'min(6em,60px)'};
+                background-color: #fff;
+                margin: 0 auto;
+                margin-top: #{'min(1rem,40px)'};
+            }
+        }
+        h5{
+           font-size: #{'min(1.8em,18px)'};
+           line-height: #{'min(2em,20px)'};
+           height: #{'min(1rem,40px)'};
+           overflow: hidden;
+           margin-top: #{'min(2em,20px)'};
+        }
+    }
+}
+
+.cntWrap{
+    margin-top: #{'min(3rem,120px)'};
+    .cnt01{
+        @include grid('pc');
+        font-family: 'Gowun Batang', serif;
+        header{
+            h2{
+                font-size: #{'min(2.4em,24px)'};
+                line-height: #{'min(1rem,40px)'};
+                font-weight: 700;
+                span{
+                    color: #71ad2c;
+                }
+            }
+        }
+        section{
+            @include bg();
+            article{
+                margin-top: #{'min(2rem,80px)'};
+                display: flex;
+                justify-content: space-between;
+                font-family: 'Gowun Batang', serif;
+                .image{                
+                    @include bg();
+                }
+                .i1{
+                    background-image: url('./images/cnt01_pic1.jpg');
+                    height: #{'min(14rem,560px)'};
+                    width: calc(100% / 12 * 6.5);
+                    background-color: #ccc;
+                }
+                .i2{
+                    background-image: url('./images/cnt01_pic2.jpg');
+                    height: #{'min(13rem,520px)'};
+                    width: calc(100% / 12 * 8);
+                }
+                .i3{
+                    background-image: url('./images/cnt01_pic3.jpg');
+                    height: #{'min(12rem,480px)'};
+                    width: calc(100% / 12 * 7.9);
+                }
+                .texts{
+                    font-weight: 700;
+                    h4{
+                        font-size: #{'min(3.6em,36px)'};
+                        line-height: #{'min(1rem,40px)'};
+                        color: #71ad2c;
+                    }
+                    h3{
+                        font-size: #{'min(3.6em,36px)'};
+                        line-height: #{'min(1rem,40px)'};
+                    }
+                    p{
+                        font-size: #{'min(1.4em,14px)'};
+                        line-height: #{'min(2em,20px)'};
+                        height: #{'min(1rem,40px)'};
+                        overflow: hidden;
+                        margin-top: #{'min(1rem,40px)'};
+                    }
+                }
+                &:nth-child(1)>.texts{
+                    margin-top: #{'min(6rem,240px)'};
+                    width: calc(100% / 12 * 4);
+                }
+                &:nth-child(2)>.texts{
+                    margin-top: #{'min(5rem,200px)'};
+                }
+                &:nth-child(3)>.texts{
+                    margin-top: #{'min(6rem,240px)'};
+                    width: calc(100% / 12 * 3);
+                }
+            }
+        }
+    }
+}
+
+.bnrWrap{
+    @include bg();
+    background-image: url('./images/product_bnr01.png');
+    width: 100vw;
+    margin-top: #{'min(3rem,120px)'};
+    .banner{
+        @include grid('pc');
+        padding: #{'min(3rem,120px)'} 0;
+        color: #fff;
+        text-align: center;
+        font-weight: 700;
+        font-family: 'Noto Sans KR', sans-serif;
+        h3{
+            font-size: #{'min(2.2em,22px)'};
+            line-height: #{'min(1rem,40px)'};
+        }
+        h2{
+            font-size: #{'min(1rem,40px)'};
+            margin-top: #{'min(1rem,40px)'};
+            color: #71ad2c;
+        }
+        .btn{
+            font-size: #{'min(2em,20px)'};
+            line-height: #{'min(7em,70px)'};
+            width: calc(100% / 12 * 3);
+            border-radius: #{'min(5em,50px)'};
+            border: 2px solid #fff;
+            margin: 0 auto;
+            margin-top: #{'min(2rem,80px)'};
+            cursor: pointer;
+        }
+    }
+}
+
+// footer
+.ftrWrap{
+    .gnbWrap{
+        background-color: #09351b;
+        .gnb{
+            @include grid('pc');
+            line-height: #{'min(3rem,120px)'};
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            .topBtn{
+                width: #{'min(2rem,80px)'};
+                height: #{'min(2rem,80px)'};
+                text-align: center;
+                line-height: #{'min(2rem,80px)'};
+                font-size: #{'min(1.6em,16px)'};
+                font-family: 'Gowun Batang', serif;
+                font-weight: 700;
+                background-color: #71ad2c;
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: -25px;
+                margin: auto;
+                border-radius: 50%;
+                cursor: pointer;
+            }
+            .tabLeft{
+                display: flex;
+                justify-content: space-between;
+                width: calc(100% / 12 * 5.2);
+                font-family: 'Gowun Batang', serif;
+                font-size: #{'min(2em,20px)'};
+                font-weight: 700;
+            }
+            .tabRight{
+                width: calc(100% / 12 * 2);
+                display: flex;
+                justify-content: space-between;
+                font-size: #{'min(3.5em,35px)'};
+            }
+        }
+    }
+    footer{
+        @include grid('pc');
+        display: flex;
+        justify-content: space-between;
+        font-family: 'Noto Sans KR', sans-serif;
+        padding-bottom: #{'min(2rem,80px)'};
+        .ftrLeft{
+            margin-top: #{'min(1rem,40px)'};
+            width: calc(100% / 12 * 6);
+            font-size: #{'min(1.2em,12px)'};
+            line-height: #{'min(1rem,40px)'};
+            .infoTop{
+                display: flex;
+                justify-content: start;
+                width: calc(100% / 6 * 5);
+                li:nth-child(2){
+                    margin-left: #{'min(2em,20px)'};
+                }
+                li{
+                    position: relative;
+                    padding: 0 7px 0 0;
+                    white-space: nowrap;
+                    &::before{
+                        content: '';
+                        width: 1px;
+                        height: 10px;
+                        background-color: #000;
+                        position: absolute;
+                        right: 0;
+                        top: 38%;
+                    }
+                }
+            }
+            .infoBtm{                
+                color: #a0a0a0;
+            }
+        }
+        .ftrRight{
+            display: flex;
+            justify-content: space-between;
+            margin-top: #{'min(1rem,40px)'};
+            font-weight: 700;
+            width: calc(100% / 12 * 4);
+            font-size: #{'min(1.2em,12px)'};
+            line-height: #{'min(2rem,80px)'};
+            h4:nth-child(1){
+                color: #71ad2c;
+            }
+            .logo{
+                background-image: url('./images/logo_cj.png');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                height: #{'min(2rem,80px)'};
+                width: calc(100% / 4 * 2 - 20px);
+            }
+        }
+    }
+}
