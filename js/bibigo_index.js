@@ -6,7 +6,7 @@ $(function(){
     var sildeCurrent = $('.sildeCurrent');
     var cnt1_btn = $('.slideSwitch>.btn>i');
     var cnt1_artGroup = $('.cnt01>section>.artView>.artGroup');
-    var auto= setInterval(autoSlide , 1800);
+    var auto = setInterval(autoSlide , 1800);
     var cnt2_btn_left = $('.cnt02 .pageBtn>i.left');
     var cnt2_btn_right = $('.cnt02 .pageBtn>i.right');
     var cnt2_artGroup = $('.cnt02 .artGroup');
@@ -15,9 +15,17 @@ $(function(){
     var bnr2_countNum = $('.bnr02 .countNum>h4');
     var bnr2_Wrap = $('.bnrWrap02');
     var num = 0;
+    var bnr2_scrollTop = $(window).scrollTop();
+    var flag = true;
     
     // 기초 세팅   
-
+    cnt1_artGroup.css({
+        marginLeft: '-33%'
+    });
+    cnt1_artGroup.find('article:eq(2)>.image').css({
+        'transform' : 'scale(1.07)'
+    });
+    
     function autoSlide(){
         ind = cnt1_artGroup.find('article:first').attr('data-num');
         sildeCurrent.css({
@@ -26,14 +34,14 @@ $(function(){
         cnt1_artGroup.animate({
             marginLeft: '-66%',          
         },1000,function(){
-            cnt1_artGroup.find('article:first').appendTo(cnt1_artGroup);
             cnt1_artGroup.css({marginLeft: '-33%'});        
             cnt1_artGroup.find('article>.image').css({
                 'transform' : 'scale(1.00)'
             });    
-            cnt1_artGroup.find('article:eq(2)>.image').css({
-                'transform' : 'scale(1.05)'
+            cnt1_artGroup.find('article:eq(3)>.image').css({
+                'transform' : 'scale(1.07)'
             });
+            cnt1_artGroup.find('article:first').appendTo(cnt1_artGroup);
         });       
     }
 
@@ -138,17 +146,32 @@ $(function(){
         cnt2_btn_right.css({'opacity' : 1});
         cnt2_btn_left.css({'opacity' : 0});
     });
-    // 여기 고쳐야함 05.02
-    bnr2_Wrap.mouseenter(function(){
-        num = bnr2_countNum.text();
-        bnr2_countNum.each(function(a){
-            $({per:0}).animate({per:num},{
-                duration: 3000,
-                progress: function(){
-                    bnr2_countNum.eq(a).text(parseInt(this.per));
-                }
-            });
-        });
+
+    $(window).blur(function(){
+        clearInterval(auto);
+    });
+
+    $(window).focus(function(){
+        auto = setInterval(autoSlide , 1800);
+    });
+    
+    $(window).scroll(function(){
+        if (flag == true){
+            if ($(this).scrollTop() >= 3049){
+                $('.bnr02 .headerBar').css({
+                    width: 'calc(100% / 12 * 5)'
+                });            
+                bnr2_countNum.each(function(a){
+                    $({per:0}).animate({per:$(this).attr('data-num')},{
+                        duration: 3000,
+                        progress: function(){
+                            bnr2_countNum.eq(a).text(parseInt(this.per));
+                        }
+                    });
+                });
+                flag = false;
+            }
+        }
     });
 
 
