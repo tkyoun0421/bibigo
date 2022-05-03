@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+@mixin bg{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@mixin grid($dev){
+    @if($dev == 'tablet'){
+        width: 90%;
+        max-width: 700px;
+    }@else if($dev == 'mobile'){
+        width: 90%;
+        max-width: 440px;
+    }@else{
+        width: 80%;
+        max-width: 1080px;
+        margin: 0 auto;
+    }
+}
+
+html{
+    font-size: 3vw;
+    body{
+        font-size: 0.7vw;
+        overflow-x: hidden;
+        width: 100vw;
+    }
+}
+
+// header
+.hdrWrap{
+    header{
+        @include grid('pc');
+        display: flex;
+        justify-content: space-between;
+        font-family: 'Gowun Batang', serif;
+        align-items: center;
+        .hdrLeft{
+            width: calc(100% / 12 * 8);
+            display: flex;
+            justify-content: space-between;
+            .logo{
+                background-image: url('./images/logo.png');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                width: calc(100% / 7 * 1.2);
+                height: auto;    
+            }
+            .nav{
+                display: flex;
+                justify-content: space-between;
+                width: calc(100% / 7 * 4.5);
+                line-height: #{'min(2rem,80px)'};
+                font-weight: 700;
+                font-size: #{'min(2em,20px)'};
+                li{
+                    cursor: pointer;
+                }
+            }
+        }
+        .hdrRight{
+            width: calc(100% / 12 * 2.5);
+            .tab{
+                display: flex;
+                justify-content: space-between;
+                font-size: #{'min(1.8em,18px)'};
+                font-weight: 700;
+                cursor: pointer;
+                min-width: 150px;
+                li{
+                    border: 2px solid #ccc;
+                    border-radius: 25px;
+                    padding: #{'min(1em,10px)'}                   
+                }
+                li:nth-child(2){
+                    background-color: #bed500;
+                    border: 2px solid #bed500;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+// content1
+.cntWrap{
+    .content{
+        @include grid('pc');
+    }
+    .cnt1{
+        margin-top: #{'min(2rem,80px)'};
+        header{
+            font-family: 'Roboto', serif;
+            h4{
+                font-size: #{'min(2em,20px)'};
+                line-height: #{'min(1rem,40px)'};
+                font-weight: 700;
+            }
+            h2{
+                font-size: #{'min(4.8em,48px)'};
+                line-height: #{'min(2rem,80px)'};
+                color: #71ad2c;
+                font-weight: 700;
+            }
+        }
+        section{
+            margin-top: #{'min(1rem,40px)'};
+            .artView{
+                width: 100%;
+                .artGroup{
+                    width: calc(100vw - ((100vw - 1080px) / -2));
+                    max-width: 1080px;
+                    display: flex;
+                    justify-content: space-between;
+                    height: #{'min(53em,530px)'};
+                    article{
+                        width: 60%;
+                        position: relative;
+                        border-right: 20px solid #e2ddd7;
+                        &:nth-child(1){
+                            position: absolute;
+                            z-index: 6;
+                        }
+                        &:nth-child(2){
+                            position: absolute;
+                            z-index: 5;
+                            margin-left: 60px;
+                        }
+                        &:nth-child(3){
+                            position: absolute;
+                            z-index: 4;
+                            margin-left: 120px;
+                        }
+                        &:nth-child(4){
+                            position: absolute;
+                            z-index: 3;
+                            margin-left: 180px;
+                        }
+                        &:nth-child(5){
+                            position: absolute;
+                            z-index: 2;
+                            margin-left: 240px;
+                        }
+                        &:nth-child(6){
+                            position: absolute;
+                            z-index: 1;
+                            margin-left: 300px;
+                        }
+                        .image{
+                            height: #{'min(53em,530px)'};
+                            @include bg();
+                            @for $i from 1 through 6{
+                                &.i#{$i}{
+                                    background-image: url('./images/product/main_pic#{$i}.jpg');
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

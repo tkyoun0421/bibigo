@@ -291,6 +291,7 @@ html{
                 margin-top: #{'min(5em,50px)'};
                 border-radius: 20px;
                 min-width: 108px;
+                cursor: pointer;
             }
         }
         .bnrRight{
@@ -356,7 +357,7 @@ html{
                     display: flex;
                     justify-content: space-between;
                     position: absolute;
-                    bottom: 0;
+                    bottom: #{'min(1rem,40px)'};
                     left: calc(100% / 4);
                     li{
                         width: #{'min(1.8em,18px)'};
@@ -471,19 +472,20 @@ html{
         position: relative;
         height: #{'min(78em,780px)'};
         header{
+            .headerBar{
+                width: 0;
+                height: #{'min(0.5em,5px)'};
+                content: '';
+                display: block;
+                background-color: #9ec477;
+                transition: all 3s ease-in-out;
+            }
             h2{
                 font-size: #{'min(1rem,40px)'};
                 line-height: #{'min(2rem,80px)'};
                 color: #305a05;
                 font-family: 'Gowun Batang', serif;
                 font-weight: 700;
-                &::before{
-                    width: calc(100% / 12 * 5);
-                    height: #{'min(0.5em,5px)'};
-                    content: '';
-                    display: block;
-                    background-color: #9ec477;
-                }
             }
         }
         .texts{
@@ -516,9 +518,7 @@ html{
                 color: #666666;
                 font-weight: 700;
                 font-family: 'Gowun Batang', serif;
-            }
-            h4:nth-child(2){
-                margin-left: calc(100% / 5 * 0.8);
+                width: calc(100% / 12 * 5.5);
             }
         }
     }
@@ -535,8 +535,9 @@ html{
         height: #{'min(12rem,480px)'};
         background-color: #e2ddd7;
         position: absolute;
-        top: #{'min(30em,300px)'};
+        top: #{'min(28em,280px)'};
         left: 0;
+        z-index: 0;
     }
     .cnt03{
         @include grid('pc');
@@ -623,9 +624,9 @@ html{
 
 // footer
 .ftrWrap{
+    margin-top: #{'min(3rem,120px)'};
     .gnbWrap{
         background-color: #09351b;
-        margin-top: #{'min(3rem,120px)'};
         .gnb{
             @include grid('pc');
             line-height: #{'min(3rem,120px)'};
@@ -726,6 +727,6 @@ html{
     }
 }
 
-@media (max-width:1024px) and (min-width:0){
+// @media (max-width:1024px) and (min-width:0){
 
-}
+// }
