@@ -110,6 +110,7 @@ html{
             margin-top: #{'min(1rem,40px)'};
             .artView{
                 width: 100%;
+                position: relative;
                 .artGroup{
                     width: calc(100vw - ((100vw - 1080px) / -2));
                     max-width: 1080px;
@@ -117,37 +118,31 @@ html{
                     justify-content: space-between;
                     height: #{'min(53em,530px)'};
                     article{
-                        width: 60%;
-                        position: relative;
+                        width: 100%;
                         border-right: 20px solid #e2ddd7;
+                        position: absolute;
                         &:nth-child(1){
-                            position: absolute;
                             z-index: 6;
                         }
                         &:nth-child(2){
-                            position: absolute;
                             z-index: 5;
-                            margin-left: 60px;
+                            margin-left: #{'min(6em,60px)'};
                         }
                         &:nth-child(3){
-                            position: absolute;
                             z-index: 4;
-                            margin-left: 120px;
+                            margin-left: #{'min(12em,120px)'};
                         }
                         &:nth-child(4){
-                            position: absolute;
                             z-index: 3;
-                            margin-left: 180px;
+                            margin-left: #{'min(18em,180px)'};
                         }
                         &:nth-child(5){
-                            position: absolute;
                             z-index: 2;
-                            margin-left: 240px;
+                            margin-left: #{'min(24em,240px)'};
                         }
                         &:nth-child(6){
-                            position: absolute;
                             z-index: 1;
-                            margin-left: 300px;
+                            margin-left: #{'min(30em,300px)'};
                         }
                         .image{
                             height: #{'min(53em,530px)'};
@@ -158,6 +153,37 @@ html{
                                 }
                             }
                         }
+                    }
+                }
+                .num{
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: #{'min(1.5em,15px)'};
+                    width: calc(100% / 12 * 0.8);
+                    margin: auto;
+                    z-index: 999;
+                    line-height: #{'min(4em,40px)'};
+                    font-size: #{'min(2em,20px)'};
+                    font-weight: 700;
+                    color: #262626;
+                    background-color: rgba(1,1,1,0.5);
+                    border-radius: #{'min(2em,20px)'};
+                    text-align: center;
+                    span{
+                        color: #ebebeb;
+                    }
+                }
+            }
+            .textView{
+                margin-top: #{"min(3em,30px)"};
+                width: 100%;
+                .textGroup{
+                    display: flex;
+                    justify-content: space-between;
+                    width: 600%;
+                    article{
+                        width: calc(100% / 6);
                     }
                 }
             }
