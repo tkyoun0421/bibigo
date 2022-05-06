@@ -647,7 +647,7 @@ html{
                 position: absolute;
                 left: 0;
                 right: 0;
-                top: -25px;
+                top: #{'min(-2.5em,-25px)'};
                 margin: auto;
                 border-radius: 50%;
                 cursor: pointer;
