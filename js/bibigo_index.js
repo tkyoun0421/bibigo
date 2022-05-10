@@ -24,10 +24,8 @@ $(function(){
     });
     $(window).blur(function(){
         clearInterval(auto);
-    });
-    
-    $(window).focus(function(){
-        auto = setInterval(autoSlide , 2000);
+        cnt1_btn.eq(1).addClass('xi-play');
+        cnt1_btn.eq(1).removeClass('xi-pause');
     });
 
 

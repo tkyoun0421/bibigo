@@ -60,26 +60,21 @@ $(function(){
         cnt1_paging.eq(ind-2).addClass('show');
     });
 
-    cnt1_paging.click(function(){
-        cnt1_paging.removeClass('show');
-        $(this).addClass('show');
-    });
-
     cnt3_btn.click(function(){
-        if (flag =! false){
+        if (flag == true) {
             cnt3_artBtm.css({
                 overflow: 'auto',
                 height: 'auto'
             });
             cnt3_btn.html('접기-');
-            flag =! false;
-        }else{
+            flag =! true;
+        } else {
+            cnt3_btn.html('더보기+');
             cnt3_artBtm.css({
                 overflow: 'hidden',
                 height: '0'
-            })
-            flag == true;
+            });
+            flag =! false;
         }
-        console.log(flag);
     });
 });
