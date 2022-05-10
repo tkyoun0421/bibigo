@@ -68,12 +68,11 @@ html{
                 justify-content: space-between;
                 font-size: #{'min(1.8em,18px)'};
                 font-weight: 700;
-                cursor: pointer;
                 min-width: 150px;
                 li{
                     border: 2px solid #ccc;
                     border-radius: 25px;
-                    padding: #{'min(1em,10px)'}                   
+                    padding: #{'min(1em,10px)'};                
                 }
                 li:nth-child(2){
                     background-color: #bed500;
@@ -103,7 +102,6 @@ html{
                     width: 600%;
                     display: flex;
                     justify-content: space-between;
-                    // transition: all .3s;
                     article{
                         width: calc(100% / 6);
                         position: relative;
@@ -152,14 +150,14 @@ html{
                     bottom: #{'min(1rem,40px)'};
                     margin: auto;
                     li{
-                        width: #{'min(1em,10px)'};
-                        height: #{'min(1em,10px)'};
+                        width: #{'min(0.5em,5px)'};
+                        height: #{'min(0.5em,5px)'};
                         border-radius: #{'min(1em,10px)'};
                         background-color: rgba(223,223,223,0.6);
                         transition: all .3s;
                     }
                     .show{
-                        width: #{'min(1rem,40px)'};
+                        width: #{'min(2em,20px)'};
                         background-color: #ffffff;
                     }
                 }
