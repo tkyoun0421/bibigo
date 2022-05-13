@@ -5,11 +5,16 @@ $(function(){
     var cnt1_text = $('.cnt1 .texts');
     var gnbBtn = $('.gnb .topBtn');
     var cnt2_tabLi = $('.cnt2 .tab li');
+    var cnt2_texts = $('.cnt2 header .texts');
     var cnt2_artGroup = $('.cnt2 .artGroup');
+    var cnt2_artGroup1 = $('.cnt2 .artGroup1');
+    var cnt2_artGroup2 = $('.cnt2 .artGroup2');
+    var cnt2_artGroup3 = $('.cnt2 .artGroup3');
     var cnt2_slideBtn = $('.cnt2 .slideBtn i');
     var cnt2_backgroundEffect = $('.cnt2 .backgroundEffect');
     var cnt2_artView = $('.cnt2 .artView');
-    
+    var logo = $('.hdrWrap .logo');
+
     // 기본세팅
     cnt2_artGroup.css({
         marginLeft: '-33%'
@@ -20,25 +25,25 @@ $(function(){
     cnt2_slideBtn.eq(0).click(function(){  
         if ( flag == true ) {
             flag =! true;
-            cnt2_artGroup.animate({
-                marginLeft: '0%',
-            },500,function(){
-                cnt2_artGroup.css({
-                    marginLeft: '-33%'
+            cnt2_artGroup.each(function(a){
+                cnt2_artGroup.eq(a).animate({
+                    marginLeft: '0%',
+                },500,function(){
+                    cnt2_artGroup.eq(a).css({
+                        marginLeft: '-33%'
+                    });
+                    cnt2_artGroup.eq(a).find('article:last').prependTo(cnt2_artGroup.eq(a));               
                 });
-                cnt2_artGroup.eq(0).find('article:last').prependTo(cnt2_artGroup.eq(0));
-                cnt2_artGroup.eq(1).find('article:last').prependTo(cnt2_artGroup.eq(1));
-                cnt2_artGroup.eq(2).find('article:last').prependTo(cnt2_artGroup.eq(2));
-            });
-            cnt2_artGroup.find('article:eq(0)').css({
-                transform: 'scale(1.15) translateY(min(40px,4em))',
-                transition: 'transform .5s'
-            });
-            cnt2_artGroup.find('article:eq(1)').css({
-                transform: 'scale(1)',
-                transition: 'transform .5s',
-                transform: 'translateY(0px)'
-            });
+                cnt2_artGroup.eq(a).find('article:eq(1)').css({
+                    transform: 'scale(1.15) translateY(min(40px,4em))',
+                    transition: 'transform .5s'
+                });
+                cnt2_artGroup.eq(a).find('article:eq(2)').css({
+                    transform: 'scale(1)',
+                    transition: 'transform .5s',
+                    transform: 'translateY(0px)'
+                });
+            })
             cnt2_backgroundEffect.animate({
                 width: '0px',
                 height: '0px'
@@ -54,25 +59,25 @@ $(function(){
     cnt2_slideBtn.eq(1).click(function(){
         if (flag == true) {
             flag =! true;
-            cnt2_artGroup.animate({
-                marginLeft: '-66%',
-            },500,function(){
-                cnt2_artGroup.css({
-                    marginLeft: '-33%'
+            cnt2_artGroup.each(function(a){
+                cnt2_artGroup.eq(a).animate({
+                    marginLeft: '-66%',
+                },500,function(){
+                    cnt2_artGroup.eq(a).css({
+                        marginLeft: '-33%'
+                    });
+                    cnt2_artGroup.eq(a).find('article:first').appendTo(cnt2_artGroup.eq(a));                
                 });
-                cnt2_artGroup.eq(0).find('article:eq(0)').appendTo(cnt2_artGroup.eq(0));
-                cnt2_artGroup.eq(1).find('article:first').appendTo(cnt2_artGroup.eq(1));
-                cnt2_artGroup.eq(2).find('article:first').appendTo(cnt2_artGroup.eq(2));
-            });
-            // cnt2_artGroup.eq(0).find('article:eq(3)').css({
-            //     transform: 'scale(1.15) translateY(min(4em,40px))',
-            //     transition: 'all .5s'
-            // });
-            // cnt2_artGroup.eq(0).find('article:eq(2)').css({
-            //     transform: 'scale(1)',
-            //     transition: 'all .5s',
-            //     transform: 'translateY(0px)'
-            // });
+                cnt2_artGroup.eq(a).find('article:eq(3)').css({
+                    transform: 'scale(1.15) translateY(min(4em,40px))',
+                    transition: 'all .5s'
+                });
+                cnt2_artGroup.eq(a).find('article:eq(2)').css({
+                    transform: 'scale(1)',
+                    transition: 'all .5s',
+                    transform: 'translateY(0px)'
+                });
+            })
             cnt2_backgroundEffect.animate({
                 width: '0px',
                 height: '0px'
@@ -92,6 +97,15 @@ $(function(){
         ind = $(this).index();
         console.log(ind);
         if (ind == 1){
+            cnt2_texts.find('.text:eq(0)').css({
+                display: 'none'
+            });
+            cnt2_texts.find('.text:eq(1)').css({
+                display: 'block'
+            });
+            cnt2_texts.find('.text:eq(2)').css({
+                display: 'none'
+            });
             cnt2_artGroup.eq(0).css({
                 display: 'none'
             });
@@ -102,6 +116,15 @@ $(function(){
                 display: 'flex'
             });
         } else if ( ind == 2 ){
+            cnt2_texts.find('.text:eq(0)').css({
+                display: 'none'
+            });
+            cnt2_texts.find('.text:eq(1)').css({
+                display: 'none'
+            });
+            cnt2_texts.find('.text:eq(2)').css({
+                display: 'block'
+            });
             cnt2_artGroup.eq(0).css({
                 display: 'none'
             });
@@ -112,6 +135,15 @@ $(function(){
                 display: 'flex'
             });
         } else {
+            cnt2_texts.find('.text:eq(0)').css({
+                display: 'block'
+            });
+            cnt2_texts.find('.text:eq(1)').css({
+                display: 'none'
+            });
+            cnt2_texts.find('.text:eq(2)').css({
+                display: 'none'
+            });
             cnt2_artGroup.eq(0).css({
                 display: 'flex'
             });
