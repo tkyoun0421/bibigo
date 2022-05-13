@@ -172,15 +172,11 @@ html{
                     margin: 0 auto;
                     margin-top: #{'min(1rem,40px)'};
                     top: 40px;
-                    opacity: 0;
-                    transition: all .5s;
                 }
                 .texts{
                     margin-top: #{'min(2rem,80px)'};
                     display: flex;
                     justify-content: space-between;
-                    opacity: 0;
-                    transition: all .5s;
                     .text{
                         width: #{'min(20em,200px)'};
                         height: #{'min(20em,200px)'};
@@ -244,7 +240,7 @@ html{
                 width: calc(100% / 12 * 9);
                 margin: 0 auto;
                 margin-top: #{'min(2rem,80px)'};
-                font-size: #{'min(2.4em,24px)'};
+                font-size: #{'min(2em,20px)'};
                 letter-spacing: #{'min(-0.025em,-0.0025px)'};
                 line-height: #{'min(3em,30px)'};
                 height: #{'min(6em,60px)'};
@@ -253,17 +249,37 @@ html{
         }
         section{
             margin-top: #{'min(3rem,120px)'};
+            position: relative;
             .artView{
                 height: #{'min(40em,400px)'};
-                overflow: hidden;
                 position: relative;
+                // overflow: hidden;
                 .artGroup{
+                    &:nth-child(1){
+                        width: 200%;
+                        article{
+                            width: calc(100% / 6);
+                        }
+                    }
+                    &:nth-child(2){
+                        // display: none;
+                        width: 166.30%;
+                        article{
+                            width: calc(100% / 5);
+                        }
+                    }
+                    &:nth-child(3){
+                        // display: none;
+                        width: 133%;
+                        article{
+                            width: calc(100% / 4);
+                        }
+                    }
                     display: flex;
                     justify-content: space-between;
-                    width: 200%;
                     position: relative;
                     z-index: 8;
-                    article{                  
+                    article{ 
                         padding-top: #{'min(1rem,40px)'};  
                         .image{
                             height: #{'min(6rem,240px)'};
@@ -277,47 +293,28 @@ html{
                                 }
                             }
                         }
-                        &:nth-child(2){
-                            margin-top: #{'min(3em,30px)'};
-                            transform: scale(1.2);
-                        }
                         .texts{
                             text-align: center;
                             font-size: #{'min(2em,20px)'};
                             line-height: #{'min(1rem,40px)'};
                         }
                     }
-                    &:nth-child(1){
-                        article{
-                            width: calc(100% / 6);
-                        }
-                    }
-                    &:nth-child(2){
-                        width: 166.3%;
-                        article{
-                            width: calc(100% / 5);
-                        }
-                    }
-                    &:nth-child(3){
-                        width: 132.6%;
-                        article{
-                            width: calc(100% / 4);
-                        }
-                    }
                 }
             }
             .backgroundEffect{
-                width: #{'min(23em,230px)'};
-                height: #{'min(23em,230px)'};
+                width: #{'min(25em,250px)'};
+                height: #{'min(25em,250px)'};
                 border-radius: 50%;
                 background-color: #0f411a;
                 position: absolute;
                 top: 0;
-                left: 0;
+                left: #{'min(0.5em,5px)'};
                 bottom: 0;
                 right: 0;
                 margin: auto;
                 z-index: 1;
+                transition: all .15s;
+                opacity: 0.85;
             }
             .btn{
                 width: calc(100% / 12 * 2);
@@ -327,8 +324,29 @@ html{
                 color: #fff;
                 background-color: #0f411a;
                 text-align: center;
-                cursor: pointer;
                 font-size: #{'min(1.8em,18px)'};
+                cursor: pointer;
+            }
+            .slideBtn{
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                position: absolute;
+                left: 0;
+                bottom: 50%;
+                z-index: 10;
+                i{
+                    font-size: #{'min(5em,50px)'};
+                    color: #fff;
+                    position: relative;
+                    width: #{'min(5em,50px)'};
+                    height: #{'min(7em,70px)'};
+                    background-color: rgba( 0, 0, 0, 0.5 );
+                    line-height: #{'min(7em,70px)'};
+                    text-align: center;
+                    cursor: pointer;
+                    transition: all .5s;
+                }
             }
         }
     }
