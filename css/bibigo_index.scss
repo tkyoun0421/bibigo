@@ -20,6 +20,17 @@
     }
 }
 
+@mixin tab{
+    @media (max-width: 1024px) and (min-width: 0px){
+        @content;
+    }
+}
+@mixin mob{
+    @media (max-width: 420px) and (min-width: 0px){
+        @content;
+    }
+}
+
 html{
     font-size: 3vw;
     body{
@@ -47,7 +58,13 @@ html{
                 background-repeat: no-repeat;
                 background-size: contain;
                 width: calc(100% / 7 * 1.2);
-                height: auto;    
+                height: auto; 
+                cursor: pointer;
+                color: rgba(0,0,0,0);
+                a{
+                    display: block;
+                    height: 100%;                    
+                }
             }
             .nav{
                 display: flex;
@@ -727,7 +744,3 @@ html{
         }
     }
 }
-
-// @media (max-width:1024px) and (min-width:0){
-
-// }

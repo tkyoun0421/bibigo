@@ -48,6 +48,12 @@ html{
                 background-size: contain;
                 width: calc(100% / 7 * 1.2);
                 height: auto;    
+                cursor: pointer;
+                color: rgba(0,0,0,0);
+                a{
+                    display: block;
+                    height: 100%;                    
+                }
             }
             .nav{
                 display: flex;
@@ -89,7 +95,6 @@ html{
 .mainWrap{
     @include bg;
     background-image: url('./images/bg_main_home.png');
-    // background: rgba(0, 0, 0 ,30%);
     height: auto;
     width: 100vw;
     main{
@@ -116,7 +121,6 @@ html{
            font-size: #{'min(1.8em,18px)'};
            line-height: #{'min(2em,20px)'};
            height: #{'min(1rem,40px)'};
-           overflow: hidden;
            margin-top: #{'min(2em,20px)'};
         }
     }

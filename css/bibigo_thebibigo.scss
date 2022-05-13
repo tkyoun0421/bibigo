@@ -36,7 +36,8 @@ html{
     header{
         @include grid('pc');
         display: flex;
-        justify-content: space-between;        
+        justify-content: space-between;
+        font-family: 'Gowun Batang', serif;
         align-items: center;
         .hdrLeft{
             width: calc(100% / 12 * 8);
@@ -49,12 +50,19 @@ html{
                 background-size: contain;
                 width: calc(100% / 7 * 1.2);
                 height: auto;    
+                cursor: pointer;
+                color: rgba(0,0,0,0);
+                a{
+                    display: block;
+                    height: 100%;                    
+                }
             }
             .nav{
                 display: flex;
                 justify-content: space-between;
                 width: calc(100% / 7 * 4.5);
                 line-height: #{'min(2rem,80px)'};
+                font-weight: 700;
                 font-size: #{'min(2em,20px)'};
                 li{
                     cursor: pointer;
@@ -67,6 +75,7 @@ html{
                 display: flex;
                 justify-content: space-between;
                 font-size: #{'min(1.8em,18px)'};
+                font-weight: 700;
                 cursor: pointer;
                 min-width: 150px;
                 li{
@@ -253,26 +262,35 @@ html{
             .artView{
                 height: #{'min(40em,400px)'};
                 position: relative;
-                // overflow: hidden;
+                overflow: hidden;
                 .artGroup{
                     &:nth-child(1){
                         width: 200%;
                         article{
                             width: calc(100% / 6);
+                            &:nth-child(3){
+                                transform: scale(1.15) translateY(#{'min(4em,40px)'});
+                            }
                         }
                     }
                     &:nth-child(2){
-                        // display: none;
+                        display: none;
                         width: 166.30%;
                         article{
                             width: calc(100% / 5);
+                            &:nth-child(3){
+                                transform: scale(1.15) translateY(#{'min(4em,40px)'});
+                            }
                         }
                     }
                     &:nth-child(3){
-                        // display: none;
-                        width: 133%;
+                        display: none;
+                        width: 266%;
                         article{
                             width: calc(100% / 4);
+                            &:nth-child(3){
+                                transform: scale(1.15) translateY(#{'min(4em,40px)'});
+                            }
                         }
                     }
                     display: flex;
@@ -336,12 +354,12 @@ html{
                 bottom: 50%;
                 z-index: 10;
                 i{
-                    font-size: #{'min(5em,50px)'};
+                    font-size: #{'min(4em,40px)'};
                     color: #fff;
                     position: relative;
                     width: #{'min(5em,50px)'};
                     height: #{'min(7em,70px)'};
-                    background-color: rgba( 0, 0, 0, 0.5 );
+                    background-color: rgba( 0, 0, 0, 0.3 );
                     line-height: #{'min(7em,70px)'};
                     text-align: center;
                     cursor: pointer;
