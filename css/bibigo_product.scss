@@ -20,6 +20,17 @@
     }
 }
 
+@mixin tab{
+    @media (max-width: 1024px) and (min-width: 0px){
+        @content;
+    }
+}
+@mixin mob{
+    @media (max-width: 420px) and (min-width: 0px){
+        @content;
+    }
+}
+
 html{
     font-size: 3vw;
     body{
@@ -32,11 +43,17 @@ html{
 // header
 .hdrWrap{
     header{
+        @include tab(){
+            @include grid('tablet');
+        }
+        @include mob(){
+            @include grid('mobile');
+        };
         @include grid('pc');
         display: flex;
         justify-content: space-between;
         font-family: 'Gowun Batang', serif;
-        align-items: center;
+        align-items: center;        
         .hdrLeft{
             width: calc(100% / 12 * 8);
             display: flex;
@@ -47,9 +64,13 @@ html{
                 background-repeat: no-repeat;
                 background-size: contain;
                 width: calc(100% / 7 * 1.2);
-                height: auto;  
+                min-width: 120px;
+                height: 80px;
                 cursor: pointer;
                 color: rgba(0,0,0,0);
+                @include mob(){
+                    width: calc(100% / 4 * 1.5);
+                };
                 a{
                     display: block;
                     height: 100%;                    
@@ -59,34 +80,186 @@ html{
                 display: flex;
                 justify-content: space-between;
                 width: calc(100% / 7 * 4.5);
-                line-height: #{'min(2rem,80px)'};
+                line-height: 80px;
                 font-weight: 700;
-                font-size: #{'min(2em,20px)'};
+                font-size: 18px;
+                @include tab(){
+                    display: none;
+                };
+                @include mob(){
+                    display: none;
+                };
                 li{
-                    cursor: pointer;
+                    a{
+                        cursor: pointer;
+                    }
                 }
+            }
+            .nav.active{
+                display: block;
+                width: 100%;
+                background-color: #efefef;
+            }
+            .nav.active li:hover{
+                background-color: #71ad2c;
+                color: #fff;
+                transition: all .5s;
+            }
+        }
+        .hdrLeft.active{
+            flex-direction: column;
+            text-align: center;
+            width: 100%;
+            .logo{
+                width: 120px;
             }
         }
         .hdrRight{
-            width: calc(100% / 12 * 2.5);
+            width: calc(100% / 12 * 2.55);            
             .tab{
                 display: flex;
                 justify-content: space-between;
-                font-size: #{'min(1.8em,18px)'};
-                font-weight: 700;
-                min-width: 150px;
+                font-size: 14px;
+                font-weight: 700;              
                 li{
                     border: 2px solid #ccc;
                     border-radius: 25px;
-                    padding: #{'min(1em,10px)'};                
+                    padding: #{'min(1em,10px)'};
+                    cursor: pointer;
+                }
+                li:nth-child(1){
+                    @include tab(){
+                        display: none;
+                    };
                 }
                 li:nth-child(2){
                     background-color: #bed500;
                     border: 2px solid #bed500;
                     color: #fff;
+                    @include tab(){
+                        display: none;
+                    };
+                }
+                li:nth-child(3){
+                    width: 20px;
+                    height: 3px;
+                    background-color: #71ad2c;
+                    border-radius: 0;
+                    border: none;
+                    padding: 0;
+                    position: absolute;
+                    top: 40px;
+                    right: 10%;
+                    display: none;
+                    border-radius: #{'min(0.2em,2px)'};
+                    @include tab(){
+                        display: block;
+                        margin-left: 70%;
+                    };
+                    @include mob(){
+                        display: block;
+                        margin-left: 70%;
+                        width: 20px;
+                        height: 3px;
+                    };
+                    &::after{
+                        content: '';
+                        display: block;
+                        width: 20px;
+                        height: 3px;
+                        background-color: #71ad2c;
+                        margin-top: 6px;
+                        border-radius: #{'min(0.2em,2px)'};
+                        @include mob(){
+                            width: 20px;
+                            height: 3px;
+                        };
+                        transition: all .5s;
+                    }
+                    &::before{
+                        content: '';
+                        display: block;
+                        width: 20px;
+                        height: 3px;
+                        background-color: #71ad2c;
+                        position: absolute;                        
+                        bottom: 6px;
+                        border-radius: #{'min(0.2em,2px)'};
+                        @include mob(){
+                            width: 20px;
+                            height: 3px;
+                        };
+                        transition: all .5s;
+                    }
+                }
+                
+                li:nth-child(1).active{
+                    display: block;
+                    font-size: 18px;
+                    border-radius: 0;
+                    border: none;
+                    line-height: 80px;
+                    padding: 0;
+                    position: relative;
+                    background-color: #efefef;
+                }
+                li:nth-child(2).active{
+                    display: block;
+                    color: #000;
+                    font-size: 18px;
+                    border: none;
+                    border-radius: 0;
+                    line-height: 80px;
+                    padding: 0;
+                    position: relative;
+                    background-color: #efefef;
+                    margin-bottom: 40px;
+                }
+                li:nth-child(1).active:hover{
+                    background-color: #71ad2c;
+                    transition: all .5s;
+                    color: #fff;
+                }
+                li:nth-child(2).active:hover{
+                    background-color: #71ad2c;
+                    transition: all .5s;
+                    color: #fff;
+                }
+                li.active{
+                    position: absolute;
+                    background-color: #fff;
+                }
+                .active::after{
+                    transform: rotate(40deg);
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;                  
+                }
+                .active::before{
+                    transform: rotate(140deg);
+                    position: absolute;
+                    left: 0;
+                    top: 0;
                 }
             }
+            .tab.active{
+                flex-direction: column;
+                justify-content: start;
+                height: 160px;
+                text-align: center;
+            }
         }
+        .hdrRight.active{
+            width: 100%;
+            height: 160px;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+    }
+    header.active{
+        display: flex;
+        flex-direction: column;
     }
 }
 
@@ -94,6 +267,9 @@ html{
 .cntWrap{
     .content{
         @include grid('pc');
+        @include tab(){
+            @include grid('tablet');
+        }
     }
     // content1
     .cnt1{
@@ -104,6 +280,10 @@ html{
                 position: relative;
                 height: #{'min(86em,860px)'};
                 width: 100vw;
+                overflow: hidden;
+                @include mob(){
+                    height: 400px;
+                };
                 .artGroup{
                     width: 600%;
                     display: flex;
@@ -112,6 +292,9 @@ html{
                         width: calc(100% / 6);
                         position: relative;
                         .image{
+                            @include mob(){
+                                height: 400px;
+                            };
                             height: #{'min(86em,860px)'};
                             width: 100vw;
                             @include bg();
@@ -137,11 +320,23 @@ html{
                             h3{
                                 font-size: #{'min(6em,60px)'};
                                 line-height: #{'min(2rem,80px)'};
+                                @include mob(){
+                                    font-size: 24px;
+                                    line-height: 40px;
+                                };
                             }
                             p{
                                 margin-top: #{'min(2rem,80px)'};
                                 font-size: #{'min(1.8em,18px)'};
                                 line-height: #{'min(1rem,40px)'};
+                                @include mob(){
+                                    font-size: 12px;
+                                    line-height: 20px;
+                                    width: 80%;
+                                    margin: 0 auto;
+                                    font-weight: normal;
+                                    margin-top: 60px;
+                                };
                             }
                         }
                     }
@@ -155,6 +350,9 @@ html{
                     right: 0;
                     bottom: #{'min(1rem,40px)'};
                     margin: auto;
+                    @include mob(){
+                        width: 200px;
+                    };
                     li{
                         width: #{'min(0.5em,5px)'};
                         height: #{'min(0.5em,5px)'};
@@ -162,10 +360,17 @@ html{
                         background-color: rgba(223,223,223,0.6);
                         transition: all .3s;
                         cursor: pointer;
+                        @include mob(){
+                            width: 30px;
+                            height: 2px;
+                        };
                     }
                     .show{
                         width: #{'min(2em,20px)'};
                         background-color: #ffffff;
+                        @include mob(){
+                            width: 30px;
+                        };
                     }
                 }
             }
@@ -185,6 +390,9 @@ html{
     // content2
     .cnt2{
         margin-top: #{'min(2rem,80px)'};
+        @include mob(){
+            margin-top: 60px;
+        };
         header{
             display: flex;
             justify-content: space-between;
@@ -193,12 +401,18 @@ html{
                 font-size: #{'min(3.6em,36px)'};
                 line-height: #{'min(2rem,80px)'};
                 font-weight: 700;
+                @include mob(){
+                    font-size: 24px;
+                };
             }
         }
         section{
             .artView{
                 position: relative;
                 overflow: hidden;
+                @include mob(){
+                    margin-top: 20px;
+                };
                 i{
                     width: #{'min(6em,60px)'};
                     height: #{'min(6em,60px)'};
@@ -215,18 +429,31 @@ html{
                     bottom: 0%;
                     margin: auto;
                     cursor: pointer;
+                    @include mob(){
+                        display: none;
+                    };
                 }
                 .artGroup{
                     display: flex;
                     justify-content: space-between;
                     width: 300%;
+                    @include tab(){
+                        width: 400%;
+                    };
+                    @include mob(){
+                        width: 1200%;
+                    };
                     article{
                         width: calc(100% / 12 - 20px);
                         cursor: pointer;
                         .image{
-                            background-position: center;
-                            background-repeat: no-repeat;
-                            background-size: contain;
+                            @include tab(){
+                                height: 200px;
+                            };
+                            @include mob(){
+                                height: 200px;
+                            };
+                            @include bg();
                             width: 100%;
                             height: #{'min(25em,250px)'};
                             @for $i from 1 through 11{
@@ -239,14 +466,23 @@ html{
                             font-family: 'Noto Sans KR', serif;
                             color: #333333;
                             font-size: #{'min(1.6em,16px)'};
+                            @include tab(){
+                                font-size: 15px;
+                            };
                             h3{
                                 margin-top: #{'min(1.6em,16px)'};
+                                @include tab(){
+                                    margin-top: 7px;
+                                };
                             }
                             h5{
                                 font-weight: 700;
                             }
                         }
                         &:nth-child(12){
+                            @include mob(){
+                                height: 250px;
+                            };
                             height: #{'min(25em,250px)'};
                             position: relative;
                             cursor: auto;
@@ -254,13 +490,15 @@ html{
                                 width: #{'min(6em,60px)'};
                                 height: #{'min(6em,60px)'};
                                 color: #71ad2c;
-                                display: inline-block;
                                 position: absolute;
                                 right: 0;
                                 top: 0;
                                 bottom: 0;
                                 left: 0;
                                 margin: auto;
+                                @include mob(){
+                                    display: block;
+                                };
                                 a{
                                     display: block;
                                     height: 100%;
@@ -270,17 +508,22 @@ html{
                                 }
                             }
                             h4{
-                                font-size: #{'min(16em,16px)'};
+                                font-size: #{'min(1.6em,16px)'};
                                 color: #333333;
                                 font-family: 'Noto Sans KR', serif;
                                 text-align: center;
                                 position: absolute;
-                                top: #{'min(10em,100px)'};
+                                top: #{'min(11em,110px)'};
                                 right: 0;
                                 left: 0;
                                 bottom: 0;
                                 margin: auto;
-                                height: 20px;
+                                height: #{'min(2em,20px)'};
+                                @include mob(){
+                                    font-size: 14px;
+                                    line-height: 10px;
+                                    top: 90px;
+                                };
                             }
                         }
                     }
@@ -290,6 +533,9 @@ html{
     }
     // content3
     .cnt3{
+        @include mob(){
+            margin-top: 60px;
+        };
         margin-top: #{'min(1rem,40px)'};
         font-family: 'Noto Sans KR', serif;        
         .btn{
@@ -303,12 +549,21 @@ html{
             margin: 0 auto;
             margin-top: #{'min(1rem,40px)'};
             cursor: pointer;
+            @include tab(){
+                line-height: 60px;
+                font-size: 14px;
+                height: 60px;
+            };
         }
         header{
             h2{
                 font-size: #{'min(3.6em,36px)'};
                 line-height: #{'min(2rem,80px)'};
                 font-weight: 700;
+                @include mob(){
+                    font-size: 24px;
+                    line-height: 40px;
+                };
             }
             &::after{
                 width: 100%;
@@ -320,6 +575,9 @@ html{
         }
         section{
             margin-top: #{'min(1rem,40px)'};
+            @include tab(){
+                margin-top: 0;
+            };
             &::after{
                 content: '';
                 display: block;
@@ -329,6 +587,9 @@ html{
                 float: left;
                 width: calc(100% / 12 * 6 - 20px);
                 margin: 0 10px;
+                @include tab(){
+                    display: none;
+                };
                 article{
                     position: relative;
                     .image{
@@ -371,16 +632,6 @@ html{
                                     padding-left: calc(100% / 4.5 * 0.7);
                                 }
                             }
-                            &::after{
-                                content: '';
-                                display: block;
-                                width: 1px;
-                                height: #{'min(1em,10px)'};
-                                background-color: #a6a6a6;
-                                position: absolute;
-                                right: #{"min(7.8em,78px)"};
-                                top: #{'min(1.7em,17px)'};
-                            }
                         }
                     }
                 }
@@ -389,15 +640,23 @@ html{
                 width: calc(100% / 12 * 6 - 20px);
                 float: left;
                 margin: 0 10px;
+                @include tab(){
+                    width: 100%;
+                    margin: 0;
+                };
                 &::after{
                     display: block;
                     clear: both;
                     content: '';
-                }
+                }                
                 article{
                     width: calc(100% / 2 - 20px);
                     margin: 0 10px;
                     float: left;
+                    @include mob(){
+                        width: 100%;
+                        margin: 0;
+                    };
                     .image{
                         @include bg();
                         height: #{'min(7rem,280px)'};
@@ -406,15 +665,27 @@ html{
                                 background-image: url('./images/product/cnt3_artRight_pic#{$i}.jpg');
                             }
                         }
+                        @include tab(){
+                            height: 220px;
+                            margin-top: #{'min(1rem,40px)'};
+                        };
                     }
                     .texts{
                         line-height: #{'min(1rem,40px)'};
                         h4{
                             font-size: #{'min(1.5em,15px)'};
                             color: #555555;
+                            @include tab(){
+                                font-size: 15px;
+                                line-height: 20px;
+                            };
                         }
                         h3{
                             font-size: #{'min(1.5em,15px)'};
+                            @include tab(){
+                                font-size: 15px;
+                                line-height: 20px;
+                            };
                         }
                         .info{
                             display: flex;
@@ -422,28 +693,29 @@ html{
                             width: calc(100% / 3 * 2.2);
                             line-height: #{"min(1rem,40px)"};
                             position: relative;
+                            @include tab(){
+                                line-height: 40px;
+                            };
                             i{
                                 line-height: #{'min(1rem,40px)'};
                                 color: #bed500;
                                 font-size: #{'min(2em,20px)'};
+                                @include tab(){
+                                    font-size: 20px;
+                                    line-height: 40px;
+                                };
                             }
                             h4{
                                 font-size: #{'min(1.5em,15px)'};
                                 color: #000;
                                 white-space: nowrap;
+                                @include tab(){
+                                    font-size: 15px;   
+                                    line-height: 40px;                                 
+                                };
                                 &:nth-child(3){
                                     padding-left: calc(100% / 3 * 0.4);
                                 }
-                            }
-                            &::after{
-                                content: '';
-                                display: block;
-                                width: 1px;
-                                height: #{'min(1em,10px)'};
-                                background-color: #a6a6a6;
-                                position: absolute;
-                                right: #{"min(8.2em,82px)"};
-                                top: #{'min(1.7em,17px)'};
                             }
                         }
                     }
@@ -454,6 +726,9 @@ html{
                 float: left;
                 height: 0;
                 overflow: hidden;
+                @include tab(){
+                    margin-top: 0;
+                };
                 &::after{
                     display: block;
                     clear: both;
@@ -463,6 +738,13 @@ html{
                     width: calc(100% / 4 - 20px);
                     float: left;
                     margin: 0 10px;
+                    @include tab(){
+                        width: calc(100% / 2 - 20px);
+                        margin-top: 20px;
+                    };
+                    @include mob(){
+                        width: 100%;
+                    }
                     .image{
                         @include bg();
                         height: #{'min(7rem,280px)'};
@@ -471,15 +753,29 @@ html{
                                 background-image: url('./images/product/cnt3_artBtm_pic#{$i}.jpg');
                             }
                         }
+                        @include tab(){
+                            height: 220px;
+                        };
                     }
                     .texts{
                         line-height: #{'min(1rem,40px)'};
+                        @include tab(){
+                            font-size: 40px;
+                        };
                         h4{
                             font-size: #{'min(1.5em,15px)'};
                             color: #555555;
+                            @include tab(){
+                                font-size: 15px;
+                                line-height: 20px;
+                            };
                         }
                         h3{
                             font-size: #{'min(1.5em,15px)'};
+                            @include tab(){
+                                font-size: 15px;
+                                line-height: 20px;
+                            };
                         }
                         .info{
                             display: flex;
@@ -487,10 +783,17 @@ html{
                             width: calc(100% / 3 * 2.2);
                             line-height: #{"min(1rem,40px)"};
                             position: relative;
+                            @include tab(){
+                                line-height: 40px;
+                            };
                             i{
                                 line-height: #{'min(1rem,40px)'};
                                 color: #bed500;
                                 font-size: #{'min(2em,20px)'};
+                                @include tab(){
+                                    font-size: 20px;
+                                    line-height: 40px;
+                                };
                             }
                             h4{
                                 font-size: #{'min(1.5em,15px)'};
@@ -499,17 +802,11 @@ html{
                                 &:nth-child(3){
                                     padding-left: calc(100% / 3 * 0.4);
                                 }
-                            }
-                            &::after{
-                                content: '';
-                                display: block;
-                                width: 1px;
-                                height: #{'min(1em,10px)'};
-                                background-color: #a6a6a6;
-                                position: absolute;
-                                right: #{"min(8.8em,88px)"};
-                                top: #{'min(1.7em,17px)'};
-                            }
+                                @include tab(){
+                                    font-size: 15px;
+                                    line-height: 40px;
+                                };
+                            }                            
                         }
                     }
                 }
@@ -521,11 +818,20 @@ html{
 
 // footer
 .ftrWrap{
-    margin-top: #{'min(3rem,120px)'};
+    margin-top: #{'min(2rem,80px)'};
+    @include mob(){
+        margin-top: 40px;
+    }
     .gnbWrap{
         background-color: #09351b;
         .gnb{
             @include grid('pc');
+            @include tab(){
+                @include grid('tablet');
+            }
+            @include mob(){
+                @include grid('mobile');
+            }
             line-height: #{'min(3rem,120px)'};
             color: #fff;
             display: flex;
@@ -543,10 +849,13 @@ html{
                 position: absolute;
                 left: 0;
                 right: 0;
-                top: #{'min(-2.5em,-25px)'};
+                top: -30%;
                 margin: auto;
                 border-radius: 50%;
                 cursor: pointer;
+                @include mob(){
+                    display: none;
+                }
             }
             .tabLeft{
                 display: flex;
@@ -555,53 +864,109 @@ html{
                 font-family: 'Gowun Batang', serif;
                 font-size: #{'min(2em,20px)'};
                 font-weight: 700;
+                @include mob(){
+                    width: calc(100% / 4 * 3);
+                    font-size: 14px;
+                    line-height: 80px;
+                }
             }
             .tabRight{
                 width: calc(100% / 12 * 2);
                 display: flex;
                 justify-content: space-between;
                 font-size: #{'min(3.5em,35px)'};
+                @include mob(){
+                    display: none;
+                }
+                li{
+                    i{
+                        height: #{'min(3.5em,35px)'};
+                        position: relative;
+                        a{
+                            display: block;
+                            width: 100%;
+                            height: 100%;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                        }
+                    }
+                }
             }
         }
     }
     footer{
+        @include tab(){
+            display: block
+        };
         @include grid('pc');
+        @include tab(){
+            @include grid('tablet');
+        }
+        @include mob(){
+            @include grid('mobile');
+        }
         display: flex;
         justify-content: space-between;
         font-family: 'Noto Sans KR', sans-serif;
         padding-bottom: #{'min(2rem,80px)'};
         .ftrLeft{
+            @include tab(){
+                width: calc(100% / 12 * 8);
+            };
+            @include mob(){
+                font-size: 12px;
+                width: 100%;
+            };
             margin-top: #{'min(1rem,40px)'};
             width: calc(100% / 12 * 6);
             font-size: #{'min(1.2em,12px)'};
             line-height: #{'min(1rem,40px)'};
             .infoTop{
+                @include mob(){
+                    margin-top: 40px;
+                    width: 100%;
+                    display: block;
+                    line-height: 20px;
+                    height: 40px;
+                };
                 display: flex;
                 justify-content: start;
                 width: calc(100% / 6 * 5);
                 li:nth-child(2){
+                    @include mob(){
+                        margin-left: 0;
+                    };
                     margin-left: #{'min(2em,20px)'};
                 }
                 li{
+                    @include mob(){
+                        white-space: unset;
+                    };
                     position: relative;
                     padding: 0 7px 0 0;
                     white-space: nowrap;
-                    &::before{
-                        content: '';
-                        width: 1px;
-                        height: 10px;
-                        background-color: #000;
-                        position: absolute;
-                        right: 0;
-                        top: 38%;
-                    }
                 }
+            }
+            .infoMid{
+                @include mob(){
+                    line-height: 40px;
+                };
             }
             .infoBtm{                
                 color: #a0a0a0;
             }
         }
         .ftrRight{
+            @include tab(){
+                margin-top: 0;
+                width: calc(100% / 12 * 6);
+            };
+            @include mob(){
+                line-height: 40px;
+                font-size: 12px;
+                width: 100%;
+            };
             display: flex;
             justify-content: space-between;
             margin-top: #{'min(1rem,40px)'};
@@ -619,6 +984,10 @@ html{
                 background-size: contain;
                 height: #{'min(2rem,80px)'};
                 width: calc(100% / 4 * 2 - 20px);
+                @include mob(){
+                    display: block;
+                    height: 45px;
+                };
             }
         }
     }
