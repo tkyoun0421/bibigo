@@ -1,3 +1,4 @@
+
 $(function(){
     // 변수
     var flag = true;
@@ -193,6 +194,12 @@ $(function(){
         cnt2_tabLi.removeClass('now');
         $(this).addClass('now');
         ind = $(this).index();
+        if ($(window).width() <= 420) {
+            i = ind;
+            cnt2_tab.css({
+                marginLeft: i * -90+ '%'
+            }); 
+        }
         if (ind == 1){
             cnt2_texts.find('.text:eq(0)').css({
                 display: 'none'
@@ -255,24 +262,144 @@ $(function(){
     cnt2_tab.swipeleft(function(){
         if ($(window).width() <= 420) {
             i++;
-            if (i>=1) {
-                i = 1;
+            if ( i >= 2 ) {
+                i = 2;
             }
             cnt2_tab.css({
-                marginLeft: i * -102 + '%'
+                marginLeft: i * -90+ '%'
             });    
+            cnt2_tabLi.removeClass('now');
+            cnt2_tabLi.eq(i).addClass('now');
+        }
+        if (i == 1){
+            cnt2_texts.find('.text:eq(0)').css({
+                display: 'none'
+            });
+            cnt2_texts.find('.text:eq(1)').css({
+                display: 'block'
+            });
+            cnt2_texts.find('.text:eq(2)').css({
+                display: 'none'
+            });
+            cnt2_artGroup.eq(0).css({
+                display: 'none'
+            });
+            cnt2_artGroup.eq(2).css({
+                display: 'none'
+            });
+            cnt2_artGroup.eq(1).css({
+                display: 'flex'
+            });
+        } else if ( i == 2 ){
+            cnt2_texts.find('.text:eq(0)').css({
+                display: 'none'
+            });
+            cnt2_texts.find('.text:eq(1)').css({
+                display: 'none'
+            });
+            cnt2_texts.find('.text:eq(2)').css({
+                display: 'block'
+            });
+            cnt2_artGroup.eq(0).css({
+                display: 'none'
+            });
+            cnt2_artGroup.eq(1).css({
+                display: 'none'
+            });
+            cnt2_artGroup.eq(2).css({
+                display: 'flex'
+            });
+        } else {
+            cnt2_texts.find('.text:eq(0)').css({
+                display: 'block'
+            });
+            cnt2_texts.find('.text:eq(1)').css({
+                display: 'none'
+            });
+            cnt2_texts.find('.text:eq(2)').css({
+                display: 'none'
+            });
+            cnt2_artGroup.eq(0).css({
+                display: 'flex'
+            });
+            cnt2_artGroup.eq(1).css({
+                display: 'none'
+            });
+            cnt2_artGroup.eq(2).css({
+                display: 'none'
+            });
         }
     });
 
     cnt2_tab.swiperight(function(){
         if ($(window).width() <= 420) {
             i--;
-            if (i<=0) {
+            if (i <= 0) {
                 i = 0;
             }
             cnt2_tab.css({
-                marginLeft: i * -100 + '%'
-            });                   
+                marginLeft: i * -90 + '%'
+            }); 
+            cnt2_tabLi.removeClass('now');
+            cnt2_tabLi.eq(i).addClass('now');                  
+        }
+        if (i == 1){
+            cnt2_texts.find('.text:eq(0)').css({
+                display: 'none'
+            });
+            cnt2_texts.find('.text:eq(1)').css({
+                display: 'block'
+            });
+            cnt2_texts.find('.text:eq(2)').css({
+                display: 'none'
+            });
+            cnt2_artGroup.eq(0).css({
+                display: 'none'
+            });
+            cnt2_artGroup.eq(2).css({
+                display: 'none'
+            });
+            cnt2_artGroup.eq(1).css({
+                display: 'flex'
+            });
+        } else if ( i == 2 ){
+            cnt2_texts.find('.text:eq(0)').css({
+                display: 'none'
+            });
+            cnt2_texts.find('.text:eq(1)').css({
+                display: 'none'
+            });
+            cnt2_texts.find('.text:eq(2)').css({
+                display: 'block'
+            });
+            cnt2_artGroup.eq(0).css({
+                display: 'none'
+            });
+            cnt2_artGroup.eq(1).css({
+                display: 'none'
+            });
+            cnt2_artGroup.eq(2).css({
+                display: 'flex'
+            });
+        } else {
+            cnt2_texts.find('.text:eq(0)').css({
+                display: 'block'
+            });
+            cnt2_texts.find('.text:eq(1)').css({
+                display: 'none'
+            });
+            cnt2_texts.find('.text:eq(2)').css({
+                display: 'none'
+            });
+            cnt2_artGroup.eq(0).css({
+                display: 'flex'
+            });
+            cnt2_artGroup.eq(1).css({
+                display: 'none'
+            });
+            cnt2_artGroup.eq(2).css({
+                display: 'none'
+            });
         }
     });
 

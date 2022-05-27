@@ -122,7 +122,6 @@ $(function(){
         }
     });
     cnt2_slideBtn.click(function(){
-        console.log(j);
         if ($(window).width() <= 420){
             if (flag == true) {
                 flag =! true;
