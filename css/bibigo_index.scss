@@ -265,6 +265,9 @@ html{
 // main
 .mainWrap{
     @include bg;
+    @include mob(){
+        height: 600px;
+    }
     background-image: url('./images/main_pic01.jpg');
     height: auto;
     width: 100vw;
@@ -281,13 +284,23 @@ html{
         color: #fff;
         font-family: 'Gowun Batang', serif;
         font-weight: 700;
+        @include mob(){
+            padding-top: 200px;
+        }
         h2{
             font-size: #{'min(7em,70px)'};
             line-height: #{'min(2rem,80px)'};
+            @include mob(){
+                font-size: 32px;
+            }
         }
         h5{
-           font-size: #{'min(3em,30px)'};
-           margin-top: #{'min(2rem,80px)'}; 
+            font-size: #{'min(3em,30px)'};
+            margin-top: #{'min(2rem,80px)'}; 
+            @include mob(){
+                font-size: 16px;
+                margin-top: 40px;
+            }
         }
     }
 }
@@ -307,13 +320,16 @@ html{
             text-align: center;
             padding-top: #{'min(3rem,120px)'};
             @include mob(){
-                padding-top: #{'min(2rem,80px)'};
+                padding-top: 40px;
             };
             h2{
                 font-size: #{'min(4.4em,44px)'};
                 font-weight: 700;
                 font-family: 'Gowun Batang', serif;
                 color: #71ad2c;
+                @include mob(){
+                    font-size: 32px;
+                }
             }
             h5{
                 font-size: #{'min(2.8em,28px)'};
@@ -323,15 +339,26 @@ html{
                 margin: 0 auto;
                 margin-top: #{'min(1rem,40px)'};
                 font-family: 'Gowun Batang', serif;
+                @include mob(){
+                    font-size: 14px;
+                    line-height: 20px;
+                    margin-top: 20px;
+                }
             }
         }
         section{
             margin-top: #{'min(2rem,80px)'};
+            @include mob(){
+                margin-top: 20px;
+            }
             .artView{
                 width: 100%;
                 overflow: hidden;
                 .artGroup{
                     width: 200%;
+                    @include mob(){
+                        width: 600%;
+                    }
                     &::after{
                         content: '';
                         display: block;
@@ -340,13 +367,21 @@ html{
                     article{
                         float: left;
                         width: calc(100% / 6 - 40px);
-                        margin: 0 20px;                 
+                        margin: 0 20px;   
+                        @include mob(){
+                            width: calc(100% / 6);
+                            margin: 0;
+                        }              
                         .image{
                             background-position: center;
                             background-repeat: no-repeat;
                             background-size: cover;
                             height: #{'min(32em,320px)'};
                             transition: transform 1.1s;
+                            @include mob(){
+                                height: 300px;
+                                background-size: contain;
+                            }
                         }
                         .i1{
                             background-image: url('./images/obj_home1_1.png');
@@ -370,21 +405,34 @@ html{
                             margin-top: #{'min(1rem,40px)'};
                             text-align: center;
                             font-family: 'Noto Sans KR', sans-serif;
+                            @include mob(){
+                                margin-top: 10px;
+                            }
                             h5{
                                 line-height: #{'min(1rem,40px)'};
                                 font-size: #{'min(1.8em,18px)'};
                                 font-weight: 700;
                                 color: #71ad2c;
+                                @include mob(){
+                                    font-size: 14px;
+                                }
                             }
                             h3{
                                 line-height: #{'min(1rem,40px)'};
                                 font-size: #{'min(2.6em,26px)'};
+                                @include mob(){
+                                    font-size: 16px;
+                                    line-height: 40px;
+                                }
                             }
                             h4{
                                 line-height: #{'min(2rem,80px)'};
                                 font-size: #{'min(1.6em,16px)'};
                                 color: #666666;
                                 cursor: pointer;
+                                @include mob(){
+                                    font-size: 12px;
+                                }
                             }
                         }
                     }
@@ -393,6 +441,9 @@ html{
             .slideSwitch{
                 display: flex;
                 justify-content: space-between;
+                @include mob(){
+                    display: none;
+                }
                 .slideWrap{
                     width: calc(100% / 12 * 9);
                     height: #{'min(0.5em,5px)'};
@@ -413,6 +464,9 @@ html{
                     @include tab(){
                         width: calc(100% / 12 * 2);
                     };
+                    @include mob(){
+                        display: none;
+                    }
                     i{
                         transition: all .3s;
                         &:hover{
@@ -444,7 +498,7 @@ html{
 .bnrWrap{
     margin-top: #{'min(3rem,120px)'};
     @include mob(){
-        margin-top: #{'min(1rem,40px)'};
+        margin-top: 40px;
     };
     .bnr01{
         margin: 0 auto;
@@ -453,7 +507,7 @@ html{
         @include mob(){
             display: block;
             position: relative;
-            height: #{'min(12rem,480px)'};
+            height: 400px;
         };
         .bnrLeft{
             @include mob(){
@@ -461,11 +515,11 @@ html{
                 padding: 0;
                 margin-left: 0;
                 border-top-left-radius: 0;
-                padding: #{'min(2rem,80px)'};
+                padding: 80px;
                 position: absolute;
                 top: 0;
                 left: 0;
-                height: #{'min(12rem,480px)'};
+                height: 400px;
                 z-index: 5;
                 background-color: rgba(0,0,0,0.5);
             };
@@ -483,8 +537,8 @@ html{
                 font-weight: 700;
                 font-family: 'Gowun Batng', serif;
                 @include mob(){
-                    font-size: #{'min(2.8em,28px)'};
-                    line-height: #{'min(1rem,40px)'};
+                    font-size: 24px;
+                    line-height: 40px;
                 };
             }
             p{
@@ -502,9 +556,10 @@ html{
                     line-height: #{'min(2em,20px)'};
                 };
                 @include mob(){
-                    font-size: #{'min(1.4em,14px)'};
-                    line-height: #{'min(2em,20px)'};
-                    margin-top: #{'min(2rem,80px)'};
+                    font-size: 14px;
+                    line-height: 20px;
+                    margin-top: 40px;
+                    color: #ccc;
                 };
             }
             .btn{
@@ -524,14 +579,17 @@ html{
                     line-height: #{'min(4em,40px)'};
                 }
                 @include mob(){
-                    margin-top: #{'min(2rem,80px)'};
+                    margin-top: 80px;
                     width: calc(100% / 12);
+                    font-size: 18px;
+                    line-height: 40px;
+                    border-radius: 10px;
                 }
             }
         }
         .bnrRight{
             @include mob(){
-                height: #{'min(12rem,480px)'};
+                height: 400px;
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -547,6 +605,9 @@ html{
 
 // content02
 .cntWrap02{
+    @include mob(){
+        margin-top: 40px;
+    }
     .cnt02{
         @include grid('pc');
         @include tab(){
@@ -565,6 +626,9 @@ html{
                 color: #305a05;
                 font-family: 'Noto Sans KR', sans-serif;
                 font-weight: 700;
+                @include mob(){
+                    font-size: 30px;
+                }
             }
             p{
                 font-size: #{'min(1.8em,18px)'};
@@ -582,6 +646,9 @@ html{
         }
         section{
             margin-top: #{'min(1rem,40px)'};
+            @include mob(){
+                margin-top: 20px;
+            }
             .artTop{
                 .tab{
                     display: flex;
@@ -593,6 +660,11 @@ html{
                     line-height: #{'min(1rem,40px)'};
                     font-weight: 700;
                     color: #e2e2e2;
+                    @include mob(){
+                        font-size: 15px;
+                        width: 100%;
+                        line-height: 20px;
+                    }
                     li{
                         cursor: pointer;
                         &.now{
@@ -611,13 +683,17 @@ html{
                     left: calc(100% / 4);
                     @include mob(){
                         left: 47%;
-                        top: 65%;
+                        top: 65.1547%;
                     }
                     li{
                         width: #{'min(1.8em,18px)'};
                         height: #{'min(1.8em,18px)'};
                         border-radius: 50%;
                         border: 1px solid #9ec477;
+                        @include mob(){
+                            width: 5px;
+                            height: 5px;
+                        }
                     }
                     .show{
                         background-color: #9ec477;
@@ -629,7 +705,8 @@ html{
                     overflow: hidden;
                     width: 100%;
                     @include mob(){
-                        height: #{'min(22rem,880px)'};
+                        height: 520px;
+                        margin-top: 20px;
                     }
                     .artGroup{
                         width: 300%;
@@ -659,6 +736,7 @@ html{
                                 @include mob(){
                                     width: 90%;
                                     margin: 0 auto;
+                                    height: 300px;
                                 }
                                 .pageBtn{
                                     width: 100%;
@@ -703,7 +781,8 @@ html{
                                     font-weight: 700;
                                     line-height: #{'min(1rem,40px)'};
                                     @include mob(){
-                                        font-size: #{'min(1.6em,16px)'};
+                                        font-size: 16px;
+                                        line-height: 20px;
                                     }
                                 }
                                 h3{
@@ -711,6 +790,10 @@ html{
                                     font-size: #{'min(2.6em,26px)'};
                                     font-weight: 700;
                                     color: #111111;
+                                    @include mob(){
+                                        font-size: 18px;
+                                        line-height: 20px;
+                                    }
                                 }
                                 p{
                                     margin-top: #{'min(1rem,40px)'};
@@ -726,9 +809,10 @@ html{
                                     -webkit-box-orient: vertical;
                                     @include mob(){
                                         width: 90%;
-                                        line-height: #{'min(3em,30px)'};
-                                        -webkit-line-clamp: 2;
-                                        height: #{'min(2rem,80px)'};
+                                        line-height: 20px;
+                                        -webkit-line-clamp: 4;
+                                        height: 80px;
+                                        font-size: 14px;
                                     }
                                 }
                                 .btn{
@@ -736,6 +820,10 @@ html{
                                     font-size: #{'min(1.4em,14px)'};
                                     color: #111111;
                                     cursor: pointer;
+                                    @include mob(){
+                                        font-size: 14px;
+                                        line-height: 40px;
+                                    }
                                 }
                             }
                         }
@@ -751,6 +839,10 @@ html{
     @include bg;
     background-image: url('./images/bibigo_e_map.png');
     height: #{'min(78em,780px)'};
+    @include mob(){
+        height: 300px;
+        margin-top: 40px;
+    }
     .bnr02{
         @include grid('pc');
         @include tab(){
@@ -776,6 +868,9 @@ html{
                 color: #305a05;
                 font-family: 'Gowun Batang', serif;
                 font-weight: 700;
+                @include mob(){
+                    font-size: 18px;
+                }
             }
         }
         .texts{
@@ -833,12 +928,19 @@ html{
                 color: #71ad2c;
                 font-weight: 700;
                 font-family: 'Noto Sans KR', sans-serif;
+                @include mob(){
+                    font-size: 24px;
+                    line-height: 40px;
+                }
             }
             h2{
                 font-size: #{'min(4.4em,44px)'};
                 line-height: #{'min(2rem,80px)'};
                 font-family: 'Gowun Batang', serif;
                 font-weight: 700;
+                @include mob(){
+                    font-size: 18px;
+                }
             }
         }
         section{
@@ -928,9 +1030,9 @@ html{
 
 // footer
 .ftrWrap{
-    margin-top: #{'min(3rem,120px)'};
+    margin-top: 0;
     @include mob(){
-        margin-top: #{'min(1rem,40px)'};
+        margin-top: 40px;
     }
     .gnbWrap{
         background-color: #09351b;
@@ -976,6 +1078,8 @@ html{
                 font-weight: 700;
                 @include mob(){
                     width: calc(100% / 4 * 3);
+                    font-size: 14px;
+                    line-height: 80px;
                 }
             }
             .tabRight{
@@ -1022,22 +1126,44 @@ html{
             @include tab(){
                 width: calc(100% / 12 * 8);
             };
+            @include mob(){
+                font-size: 12px;
+                width: 100%;
+            };
             margin-top: #{'min(1rem,40px)'};
             width: calc(100% / 12 * 6);
             font-size: #{'min(1.2em,12px)'};
             line-height: #{'min(1rem,40px)'};
             .infoTop{
+                @include mob(){
+                    margin-top: 40px;
+                    width: 100%;
+                    display: block;
+                    line-height: 20px;
+                    height: 40px;
+                };
                 display: flex;
                 justify-content: start;
                 width: calc(100% / 6 * 5);
                 li:nth-child(2){
+                    @include mob(){
+                        margin-left: 0;
+                    };
                     margin-left: #{'min(2em,20px)'};
                 }
                 li{
+                    @include mob(){
+                        white-space: unset;
+                    };
                     position: relative;
                     padding: 0 7px 0 0;
                     white-space: nowrap;
                 }
+            }
+            .infoMid{
+                @include mob(){
+                    line-height: 40px;
+                };
             }
             .infoBtm{                
                 color: #a0a0a0;
@@ -1047,6 +1173,11 @@ html{
             @include tab(){
                 margin-top: 0;
                 width: calc(100% / 12 * 6);
+            };
+            @include mob(){
+                line-height: 40px;
+                font-size: 12px;
+                width: 100%;
             };
             display: flex;
             justify-content: space-between;
@@ -1065,6 +1196,10 @@ html{
                 background-size: contain;
                 height: #{'min(2rem,80px)'};
                 width: calc(100% / 4 * 2 - 20px);
+                @include mob(){
+                    display: block;
+                    height: 45px;
+                };
             }
         }
     }
