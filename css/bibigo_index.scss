@@ -406,7 +406,7 @@ html{
                             text-align: center;
                             font-family: 'Noto Sans KR', sans-serif;
                             @include mob(){
-                                margin-top: 10px;
+                                margin-top: 20px;
                             }
                             h5{
                                 line-height: #{'min(1rem,40px)'};
@@ -442,18 +442,25 @@ html{
                 display: flex;
                 justify-content: space-between;
                 @include mob(){
-                    display: none;
+                    display: block;
                 }
                 .slideWrap{
                     width: calc(100% / 12 * 9);
                     height: #{'min(0.5em,5px)'};
                     background-color: #ebebeb;
                     margin-top: #{'min(1rem,40px)'};
+                    @include mob(){
+                        width: 100%;
+                        height: 5px;
+                    }
                     .sildeCurrent{
                         width: calc(100% / 6);
                         height: #{'min(0.5em,5px)'};
                         background-color: #71ad2c;
                         transition: width 1s;
+                        @include mob(){
+                            height: 5px;
+                        }
                     }   
                 }
                 .btn{
@@ -465,7 +472,11 @@ html{
                         width: calc(100% / 12 * 2);
                     };
                     @include mob(){
-                        display: none;
+                        margin: 0 auto;
+                        margin-top: 20px;
+                        width: 100%;
+                        text-align: center;
+                        font-size: 18px;
                     }
                     i{
                         transition: all .3s;
@@ -691,7 +702,7 @@ html{
                     left: calc(100% / 4);
                     @include mob(){
                         left: 47%;
-                        top: 65.1547%;
+                        top: 67.1547%;
                     }
                     li{
                         width: #{'min(1.8em,18px)'};
@@ -778,10 +789,11 @@ html{
                             .texts{
                                 font-family: 'Noto Sans KR', sans-serif;
                                 width: calc(100% / 12 * 4);
-                                padding-top: #{'min(3rem,120px)'};
+                                margin-top: #{'min(3rem,120px)'};
                                 @include mob(){
                                     width: 90%;
                                     margin: 0 auto;
+                                    margin-top: 40px
                                 }
                                 h5{
                                     font-size: #{'min(1.8em,18px)'};
