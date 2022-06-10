@@ -10,6 +10,9 @@ $(function(){
     const article = $('article');
     const item2 = $('.item_2');
     const item3 = $('.item_3');
+    let slide1 = false;
+    let slide2 = false;
+    let slide3 = false;
 
     // 함수
     bars.eq(2).click(function(){   
@@ -43,14 +46,26 @@ $(function(){
         let value1 = article.eq(1).offset().top;
         let value2 = article.eq(2).offset().top;
         let top = $(window).scrollTop();
-        console.log('scorllY',value);
-        console.log('scorllTop',top);
+        console.log(slide1);
+        console.log(slide2);
+        console.log(slide3);
         if (top <= value) {
-            article.eq(0).addClass('item_1');
-        } else if (top <= value1) {
-            article.eq(1).addClass('item_2');
-        } else if (top <= value2) {
-            article.eq(2).addClass('item_3');
+            if (slide1 =! false) {               
+                article.eq(0).addClass('item_1');
+            } 
+            slide1 = true;
+        }
+        if (top <= value1 && top >= value) {
+            if (slide2 =! false) {
+                article.eq(1).addClass('item_2');
+            }
+            slide2 = true;
+        } 
+        if (top <= value2 && top >= value1) {
+            if (slide3 =! false) {
+                article.eq(2).addClass('item_3');
+            }  
+            slide3 = true;
         }
     });
 });
