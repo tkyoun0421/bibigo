@@ -20,10 +20,11 @@
     }
 }
 
-@mixin animate($delay, $duration, $name){
+@mixin animate($delay, $duration, $name , $forwards){
     animation-delay: $delay;
     animation-duration: $duration;
     animation-name: $name;
+    animation-fill-mode: $forwards;
 };
 @mixin keyframes($animation_name){
     @keyframes #{$animation_name}{
@@ -466,7 +467,7 @@ html{
                         opacity: 1;
                     }
                 }
-                @include animate(0s, 3s, move);
+                @include animate(0s, 3s, move, forwards);
             }
             .item_2{
                 @include keyframes(moveRight){
@@ -479,7 +480,7 @@ html{
                         opacity: 1;
                     }
                 }
-                @include animate(0s, 3s, moveRight);
+                @include animate(0s, 3s, moveRight, forwards);
             }
             .item_3{
                 @include keyframes(move){
@@ -492,7 +493,7 @@ html{
                         opacity: 1;
                     }
                 }
-                @include animate(0s, 3s, move);
+                @include animate(0s, 3s, move, forwards);
             }
         }        
     }
@@ -733,4 +734,3 @@ html{
         }
     }
 }
-

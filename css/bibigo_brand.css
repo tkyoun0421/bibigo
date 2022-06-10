@@ -613,6 +613,8 @@ html body {
           animation-duration: 3s;
   -webkit-animation-name: move;
           animation-name: move;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 @-webkit-keyframes move {
@@ -648,6 +650,9 @@ html body {
           animation-duration: 3s;
   -webkit-animation-name: moveRight;
           animation-name: moveRight;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+          
 }
 
 @-webkit-keyframes moveRight {
@@ -683,6 +688,8 @@ html body {
           animation-duration: 3s;
   -webkit-animation-name: move;
           animation-name: move;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 @keyframes move {
