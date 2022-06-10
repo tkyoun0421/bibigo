@@ -6,6 +6,10 @@ $(function(){
     var tab = $('.hdrWrap .tab');
     var hdr = $('.hdrWrap header');
     var hdrRight = $('.hdrWrap .hdrRight');
+    const section = $('section');
+    const article = $('article');
+    const item2 = $('.item_2');
+    const item3 = $('.item_3');
 
     // 함수
     bars.eq(2).click(function(){   
@@ -32,5 +36,21 @@ $(function(){
         $('html,body').stop().animate({
             scrollTop : 0
         },1000);
+    });
+
+    $(window).scroll(function(){
+        let value = article.eq(0).offset().top;
+        let value1 = article.eq(1).offset().top;
+        let value2 = article.eq(2).offset().top;
+        let top = $(window).scrollTop();
+        console.log('scorllY',value);
+        console.log('scorllTop',top);
+        if (top <= value) {
+            article.eq(0).addClass('item_1');
+        } else if (top <= value1) {
+            article.eq(1).addClass('item_2');
+        } else if (top <= value2) {
+            article.eq(2).addClass('item_3');
+        }
     });
 });

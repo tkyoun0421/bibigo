@@ -20,6 +20,17 @@
     }
 }
 
+@mixin animate($delay, $duration, $name){
+    animation-delay: $delay;
+    animation-duration: $duration;
+    animation-name: $name;
+};
+@mixin keyframes($animation_name){
+    @keyframes #{$animation_name}{
+        @content;
+    }
+};
+
 @mixin tab{
     @media (max-width: 1024px) and (min-width: 0px){
         @content;
@@ -346,6 +357,7 @@ html{
                 display: flex;
                 justify-content: space-between;
                 font-family: 'Gowun Batang', serif;
+                opacity: 0;
                 &:nth-child(2).texts{
                     order: 3;
                 }
@@ -418,6 +430,7 @@ html{
                         };
                     }
                 }
+                
                 &:nth-child(1)>.texts{
                     margin-top: #{'min(6rem,240px)'};
                     width: calc(100% / 12 * 4);
@@ -442,7 +455,46 @@ html{
                     };
                 }
             }
-        }
+            .item_1{
+                @include keyframes(move){
+                    0%{
+                        transform: translateX(-100%);
+                        opacity: 0;
+                    }
+                    100%{
+                        transform: translateX(0%);
+                        opacity: 1;
+                    }
+                }
+                @include animate(0s, 3s, move);
+            }
+            .item_2{
+                @include keyframes(moveRight){
+                    0%{
+                        transform: translateX(100%);
+                        opacity: 0;
+                    }
+                    100%{
+                        transform: translateX(0%);
+                        opacity: 1;
+                    }
+                }
+                @include animate(0s, 3s, moveRight);
+            }
+            .item_3{
+                @include keyframes(move){
+                    0%{
+                        transform: translateX(-100%);
+                        opacity: 0;
+                    }
+                    100%{
+                        transform: translateX(0%);
+                        opacity: 1;
+                    }
+                }
+                @include animate(0s, 3s, move);
+            }
+        }        
     }
 }
 
